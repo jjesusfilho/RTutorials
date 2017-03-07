@@ -19,6 +19,8 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 ### Assignments
 - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
 
+## Lesson 2
+- [Data Input and Output](Lesson1/io.html){:target="_blank"}
 
 ---
 ## Support or Questions
