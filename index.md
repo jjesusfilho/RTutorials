@@ -11,7 +11,7 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 ### Slides
 - [Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html){:target="_blank"}
 - [Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html){:target="_blank"}
-- [Introduction to Tidyverse](Lesson1/slides/introR_part2_slides.html){:target="_blank"}
+- [Introduction to Tidyverse](Lesson1/slides/introtoR_part2_slides.html){:target="_blank"}
 
 ### Workbooks
 - [Basic R](Lesson1/introtoR.nb.html){:target="_blank"}
