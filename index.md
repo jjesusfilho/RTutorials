@@ -8,9 +8,9 @@ author: "Erin"
 I'm helping my coworkers expand their use and knowedlge of R. This is will be the main resource for putting my materials until I find a different place.
 
 ## Lesson 1
-[Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html)
-[Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html)
-[Introduction to Tidyverse](Lesson1/slides/introR_part2_slides.html)
+-[Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html)
+-[Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html)
+-[Introduction to Tidyverse](Lesson1/slides/introR_part2_slides.html)
 
 ## Support or Questions
 Email me at erin.grand@uncommonschools.org with any questions or comments. If you find any typos, feel free to send in a pull request to fix them. 
