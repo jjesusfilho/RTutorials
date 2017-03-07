@@ -11,18 +11,19 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 ### Slides
 - [Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html){:target="_blank"}
 - [Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html){:target="_blank"}
-- [Introduction to Tidyverse](Lesson1/slides/introtoR_part2_slides.html){:target="_blank"}
+- [Transforming Data](Lesson1/slides/introtoR_part2_slides.html){:target="_blank"}
 
 ### Workbooks
 - [Data Input and Output](Lesson1/io.html){:target="_blank"}
 - [Basic R](Lesson1/introtoR.nb.html){:target="_blank"}
+- [Transforming Data](Lesson1/introtoR_part2.nb.html){:target="_blank"}
 
 ### Assignments
 - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
 
 
 ## Other
-- [Notes from a talk at Columbia by Hadley Wickham](hadley_notes.html)
+- [Notes from a talk at Columbia by Hadley Wickham](hadley_notes.html) 
 
 ---
 ## Support or Questions
