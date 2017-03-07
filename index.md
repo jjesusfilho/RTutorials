@@ -17,7 +17,8 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 - [Basic R](Lesson1/introtoR.nb.html){:target="_blank"}
 
 ### Assignments
-- [Using the Tidyverse](Lesson1/Assignment/assignemnet_2.R){:target="_blank"}
+- [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
+
 ## Support or Questions
 Email me at erin.grand@uncommonschools.org with any questions or comments. If you find any typos, feel free to send in a pull request to fix them. 
 
