@@ -1,30 +1,13 @@
 ## Welcome to My R Tutorials Page.
-
 I'm helping my coworkers expand their use and knowedlge of R. This is will be the main resource for putting my materials until I find a different place.
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+#Lesson 1
+- 
 
-- Bulleted
-- List
+#Support or Questions
+Email me at erin.grand@uncommonschools.org with any questions or comments. If you find any typos, feel free to send in a pull request to fix them. 
 
-1. Numbered
-2. List
+#Acknowledgements
+Special Thanks to Hadely and Steph Locke for getting me started. More complete citations and thanks [here](acknowledgements.html).
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/eringrand/RTutorials/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This site uses the Jekyll Theme Minimal.
