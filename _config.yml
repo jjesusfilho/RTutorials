@@ -1,1 +1,8 @@
+# This file contains configuration flags to customize your site
+
+# Name of your site (displayed in the header)
+name: R Tutorials for Data Analytics
+# Short bio or description (displayed in the header)
+description: Lessons and reviews to advance your R skills
+# Theme
 theme: jekyll-theme-minimal
