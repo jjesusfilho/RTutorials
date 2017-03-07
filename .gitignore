@@ -217,5 +217,8 @@ pip-log.txt
 
 #Rstudio
 .Rhistory
-*.Rproj
-
+*.utf8.md
+*.knit.md
+.Rproj.user
+.Rhistory
+.RData
