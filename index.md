@@ -14,13 +14,12 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 - [Introduction to Tidyverse](Lesson1/slides/introtoR_part2_slides.html){:target="_blank"}
 
 ### Workbooks
+- [Data Input and Output](Lesson1/io.html){:target="_blank"}
 - [Basic R](Lesson1/introtoR.nb.html){:target="_blank"}
 
 ### Assignments
 - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
 
-## Lesson 2
-- [Data Input and Output](Lesson1/io.html){:target="_blank"}
 
 ---
 ## Support or Questions

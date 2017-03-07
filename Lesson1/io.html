@@ -9,7 +9,6 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Erin" />
 
 
 <title>Data IO</title>
@@ -117,7 +116,6 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Data IO</h1>
-<h4 class="author"><em>Erin</em></h4>
 <h4 class="date"><em>March 7, 2017</em></h4>
 
 </div>
@@ -135,7 +133,7 @@ $(document).ready(function () {
 <tbody>
 <tr class="odd">
 <td>CSV</td>
-<td>read.csv , data.table::fread , readr::read_csv</td>
+<td>read.csv , readr::read_csv</td>
 </tr>
 <tr class="even">
 <td>Excel</td>
@@ -180,22 +178,28 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<div id="csvs" class="section level4">
-<h4>CSVs:</h4>
-<pre class="r"><code>read_csv()</code></pre>
 </div>
-<div id="write-data-out" class="section level4">
-<h4>Write Data out:</h4>
-<pre class="r"><code>write_csv()</code></pre>
-<div id="excel-files" class="section level5">
-<h5>Excel Files:</h5>
-<pre class="r"><code>f &lt;- function(file, sheetname, cn){
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<p>All of the following examples use packages from the Tidyverse. I prefer <code>readr</code> and <code>readxl</code> to their basic R counterparts.</p>
+<div id="read-data-in" class="section level3">
+<h3>Read Data In:</h3>
+<pre class="r"><code>read_csv() #readr</code></pre>
+</div>
+<div id="write-data-out" class="section level3">
+<h3>Write Data out:</h3>
+<pre class="r"><code>write_csv() #readr</code></pre>
+</div>
+<div id="excel-files" class="section level3">
+<h3>Excel Files:</h3>
+<p>This is a helper function I’ve written to make sure that the column names of my data frame are usable in the future code (i.e. so that column names don’t have spaces or punctuation.)</p>
+<pre class="r"><code>#readxl
+f &lt;- function(file, sheetname, cn){
   x &lt;- read_excel(file, sheet = sheetname, na = &quot;&quot;, col_names = cn)
   valid_column_names &lt;- make.names(names=names(x), unique=TRUE, allow_ = TRUE)
   names(x) &lt;- valid_column_names
   return(x)
 }</code></pre>
-</div>
 </div>
 </div>
 <div id="other-file-types" class="section level2">
