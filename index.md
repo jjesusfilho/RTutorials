@@ -21,6 +21,9 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
 
 
+## Other
+- [Notes from a talk at Columbia by Hadley Wickham](hadley_notes.html)
+
 ---
 ## Support or Questions
 Email me at erin.grand@uncommonschools.org with any questions or comments. If you find any typos, feel free to send in a pull request to fix them. 
