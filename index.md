@@ -23,7 +23,7 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 
 
 ## Other
-- [Notes from a talk at Columbia by Hadley Wickham](hadley_notes.nb.shtml) 
+- [Notes from a talk at Columbia by Hadley Wickham](hadley_notes.nb.html) 
 
 ---
 ## Support or Questions
