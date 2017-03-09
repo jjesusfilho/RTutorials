@@ -21,7 +21,7 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 - [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
 ## Other
-- [Notes from a talk at Columbia by Hadley Wickham](hadley_notes.html) 
+- [Notes from a talk at Columbia by Hadley Wickham](hadley_notes.nb.html){:target="_blank"}
 
 ---
 ## Support or Questions
