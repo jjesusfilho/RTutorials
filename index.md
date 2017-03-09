@@ -1,5 +1,5 @@
 ## Welcome to My R Tutorials Page.
-I'm helping my coworkers expand their use and knowedlge of R. This is will be the main resource for putting my materials until I find a different place.
+I'm helping my coworkers expand their use and knowledge of R. This is will be the main resource for putting my materials until I find a different place.
 
 ## Lesson 1
 ### Slides
@@ -15,8 +15,10 @@ I'm helping my coworkers expand their use and knowedlge of R. This is will be th
 ### Assignments
 - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
 
-##Rstudio Cheatsheets
+## Rstudio Cheatsheets
+- [Base R](http://github.com/rstudio/cheatsheets/raw/master/source/pdfs/base-r.pdf)
 - [Rstudio IDE](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+- [Data Import](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-import-cheatsheet.pdf)
 - [Data Wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 - [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
