@@ -101,39 +101,6 @@
 
 <p>Focusing on packages found in tidyverse</p>
 
-</article></slide><slide class=''><hgroup><h2></h2></hgroup><article >
-
-<h5>Wokring Directory:</h5>
-
-<pre class = 'prettyprint lang-r'>setwd(&quot;S:/Data Analytics/Resource Library/R Help/&quot;)</pre>
-
-</article></slide><slide class=''><hgroup><h2></h2></hgroup><article >
-
-<h3>Bottom Left:</h3>
-
-<p>Console, where your output shows up! - You can type code in here if you&#39;d like to test out commands, or get quick answers. - This is NOT the place to write all your code, that should be saved in the script.</p>
-
-</article></slide><slide class=''><hgroup><h2></h2></hgroup><article >
-
-</article></slide><slide class=''><hgroup><h2>Read Data In</h2></hgroup><article  id="read-data-in">
-
-<h4>CSVs:</h4>
-
-<pre class = 'prettyprint lang-r'>read.csv()</pre>
-
-<h4>Write Data out:</h4>
-
-<pre class = 'prettyprint lang-r'>write.csv()</pre>
-
-<h5>Excel Files:</h5>
-
-<pre class = 'prettyprint lang-r'>f &lt;- function(file, sheetname, cn){
-  x &lt;- read_excel(file, sheet = sheetname, na = &quot;&quot;, col_names = cn)
-  valid_column_names &lt;- make.names(names=names(x), unique=TRUE, allow_ = TRUE)
-  names(x) &lt;- valid_column_names
-  return(x)
-}</pre>
-
 </article></slide><slide class=''><hgroup><h2>Packages</h2></hgroup><article  id="packages">
 
 <p>Download tidyverse: Imports: dplyr, ggplot2, lubricate, readr, readxl, stringr, tibble, tidyr, magrittr if you&#39;re using multiple packages make sure you&#39;re loading them in the right order</p>
@@ -162,7 +129,7 @@ library(tidyverse)</pre>
 <li>Select</li>
 <li>Arrange</li>
 <li>Mutate</li>
-<li>Group by, Summarise</li>
+<li>Group by, Summarize</li>
 </ol>
 
 </article></slide><slide class=''><hgroup><h2>There are so many things we didn&#39;t cover!</h2></hgroup><article  id="there-are-so-many-things-we-didnt-cover">
