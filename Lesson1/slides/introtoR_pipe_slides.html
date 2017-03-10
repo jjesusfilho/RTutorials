@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Untitled</title>
+  <title>Ceci n’est pas une pipe</title>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Untitled',
+                title: 'Ceci n’est pas une pipe',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -99,7 +99,7 @@
 
 <slide class=''><hgroup><h2>Introduction to Not-a-Pipe: %&gt;%</h2></hgroup><article  id="introduction-to-not-a-pipe">
 
-<p>(Someone once told me that the <code>%&gt;%</code> is called not-a-pipe since <em>pipe</em> was already taken, but seemingly my class are the only ones that keep up that name.)</p>
+<p>(Someone once told me that the <code>%&gt;%</code> is called not-a-pipe since <em>pipe</em> was already taken.)</p>
 
 <ul>
 <li>The pipe leads the OUTPUT of one command into the INPUT of the next one.</li>
@@ -115,7 +115,7 @@
 
 </article></slide><slide class=''><hgroup><h2></h2></hgroup><article >
 
-<h3>Difference bettween piping and not piping.</h3>
+<h3>Example: Difference bettween piping and not piping.</h3>
 
 <pre >bop_on(
   scoop_up(
@@ -151,6 +151,8 @@
 )</pre>
 
 </article></slide><slide class=''><hgroup><h2></h2></hgroup><article >
+
+<p>Is this easier to understand?</p>
 
 <pre class = 'prettyprint lang-r'>hourly_delay &lt;- flights %&gt;% 
   filter(!is.na(dep_delay)) %&gt;%
