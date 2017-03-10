@@ -5,6 +5,7 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 ### Slides
 - [Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html){:target="_blank"}
 - [Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html){:target="_blank"}
+- [The Pipe](Lesson1/slides/introtoR_pipe_slides.html){:target="_blank"}
 - [Transforming Data](Lesson1/slides/introtoR_part2_slides.html){:target="_blank"}
 
 ### Workbooks
