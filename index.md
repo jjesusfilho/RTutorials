@@ -17,7 +17,7 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
 
 ## Lesson 2 (links coming soon)
-- Tidy Date
+- Tidy Data
 - Writing Functions
 
 ## Rstudio Cheatsheets
