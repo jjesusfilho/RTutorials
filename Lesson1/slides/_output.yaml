@@ -1,0 +1,7 @@
+revealjs::revealjs_presentation:
+  css: ~/Github/Rtutorials/Lesson1/temp.css
+  theme: white
+  self_contained: yes
+  incremental: yes
+  reveal_options:
+    slideNumber: true
