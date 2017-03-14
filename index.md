@@ -36,5 +36,5 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 Email me at erin.grand@uncommonschools.org with any questions or comments. If you find any typos, feel free to send in a pull request to fix them. 
 
 ## Acknowledgements
-Special Thanks to Hadely Wickham and Steph Locke for getting me started. More complete citations and thanks [here](acknowledgements.md).
+Special Thanks to Hadely Wickham and Steph Locke for getting me started. I proudly borrowed materials from both of them and the UVCM R Bootcamp. More complete citations and thanks [here](acknowledgements.md).
 
