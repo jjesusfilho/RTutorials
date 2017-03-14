@@ -12,6 +12,7 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 - [Data Input and Output](Lesson1/io.html){:target="_blank"}
 - [Basic R](Lesson1/introtoR.nb.html){:target="_blank"}
 - [Data Manipulation](Lesson1/introtoR_part2.nb.html){:target="_blank"}
+- [Subsetting](Lesson1/subsetting.html){:target="_blank"}
 
 ### Assignments
 - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
