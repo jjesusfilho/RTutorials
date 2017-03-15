@@ -5,3 +5,5 @@ title: R Tutorials for Data Analytics
 description: Lessons and reviews to advance your R skills
 # Theme
 theme: jekyll-theme-minimal
+# google_analytics
+google_analytics: UA-59780775-1
