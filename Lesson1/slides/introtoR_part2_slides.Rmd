@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R: Tidyverse"
 author: "Erin Grand"
-date: `r sys.Date()`
+date: "3/15/2017"
 output: revealjs::revealjs_presentation
 ---
 
@@ -29,7 +29,7 @@ library(tidyverse)
 1. Each type of observational unit forms a table
 
 ## Learn to think in Code
-How to do you currently think about a task in excel or tableau? Learn how to translate and use that process in code. If you can relate it to how you already think you'll find it easier to transition between the two. 
+How to do you currently think about a task in excel or tableau? Learn how to translate and use that process in code. 
 
 1. What is your process for creating a pivot table?
 1. What is your process for creating a new column?

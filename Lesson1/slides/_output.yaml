@@ -1,5 +1,5 @@
 revealjs::revealjs_presentation:
-  css: ~/Github/Rtutorials/Lesson1/temp.css
+  css: ~/Github/Rtutorials/Lesson1/slides/temp.css
   theme: white
   self_contained: yes
   incremental: yes
