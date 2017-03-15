@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Erin" />
-  <meta name="dcterms.date" content="2017-03-14" />
+  <meta name="dcterms.date" content="2017-03-15" />
   <title>Introduction to R: The Basics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -490,7 +490,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">Introduction to R: The Basics</h1>
     <h2 class="author">Erin</h2>
-    <h3 class="date">2017-03-14</h3>
+    <h3 class="date">2017-03-15</h3>
 </section>
 
 <section><section id="welcome-and-introduction" class="titleslide slide level1"><h1>Welcome and Introduction</h1></section><section id="before-we-jump-into-it-make-sure-that-you-have-rstudio-r-and-the-package-tidyverse-installed." class="slide level2">
@@ -744,12 +744,16 @@ x =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</s
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris[, <span class="dv">6</span>]</code></pre></div>
 <pre><code>## Error in `[.data.frame`(iris, , 6): undefined columns selected</code></pre>
-<p>Hint: How many columns does the <code>iris</code> data frame have?</p>
+<ul>
+<li class="fragment">Hint: How many columns does the <code>iris</code> data frame have?</li>
+</ul>
 </section><section class="slide level2">
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample[<span class="dv">1</span>:<span class="dv">10</span>,]</code></pre></div>
 <pre><code>## Error in sample[1:10, ]: object of type 'closure' is not subsettable</code></pre>
-<p>Hint: What does <code>typeof(sample)</code> give you? What about <code>sample(10)</code>? Or <code>?sample</code></p>
+<ul>
+<li class="fragment">Hint: What does <code>typeof(sample)</code> give you? What about <code>sample(10)</code>? Or <code>?sample</code></li>
+</ul>
 </section><section class="slide level2">
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pet_a_cat</span>()</code></pre></div>
@@ -761,20 +765,26 @@ if (nothing ==<span class="st"> </span><span class="ot">NA</span>) {
     <span class="kw">print</span>(<span class="st">&quot;empty&quot;</span>)
 }</code></pre></div>
 <pre><code>## Error in if (nothing == NA) {: missing value where TRUE/FALSE needed</code></pre>
-<p>Hint: What does <code>nothing == NA</code> give you? How about <code>is.na(nothing)</code>?</p>
+<ul>
+<li class="fragment">Hint: What does <code>nothing == NA</code> give you? How about <code>is.na(nothing)</code>?</li>
+</ul>
 </section><section class="slide level2">
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_data =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;mydata.txt&quot;</span>)</code></pre></div>
 <pre><code>## Warning in file(file, &quot;rt&quot;): cannot open file 'mydata.txt': No such file or
 ## directory</code></pre>
 <pre><code>## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre>
-<p>Hint: Read the error message carefully.</p>
+<ul>
+<li class="fragment">Hint: Read the error message carefully.</li>
+</ul>
 </section><section class="slide level2">
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">y =</span> <span class="ot">NULL</span>)
 x$y =<span class="st"> </span><span class="dv">1</span>:<span class="dv">4</span></code></pre></div>
 <pre><code>## Error in `$&lt;-.data.frame`(`*tmp*`, &quot;y&quot;, value = 1:4): replacement has 4 rows, data has 0</code></pre>
-<p>Hint: How many rows does <code>x</code> have?</p>
+<ul>
+<li class="fragment">Hint: How many rows does <code>x</code> have?</li>
+</ul>
 </section></section>
 <section><section id="questions-so-far" class="titleslide slide level1"><h1>Questions so Far</h1></section><section id="any-questions-you-have-from-the-tutorial" class="slide level2">
 <h1>Any Questions you have from the tutorial?</h1>
