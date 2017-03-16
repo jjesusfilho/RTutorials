@@ -36,15 +36,6 @@ How to do you currently think about a task in excel or tableau? Learn how to tra
 1. How do you sort data?
 
 
-## SPLIT APPLY COMBINE
-1.	Split up the original data (this can be any format including data frames, lists, arrays, matrices, vectors),
-2.	Apply existing or custom functions to it, and
-3.	Combine the results in the same or different format.
-
-This will come back in a later lesson when we look at `PURR` and functional programing.
-
-
-
 # DPLYR
 
 ##  Five Most Important DPLYR Functions
@@ -54,10 +45,15 @@ This will come back in a later lesson when we look at `PURR` and functional prog
 4.	`Mutate`
 5.	`Group_by`, `Summarize` (`Summarise`)
 
+All these function work similarly, the first argument is a data frame, the next describe what you want to do with the data frame, and the result is a new data frame. 
 
 ## Filter
-Task: filter the IA data to only include NY 8th grade students Math tests. This way you'll only looking at Regents test takers.
+![](~/GitHub/RTutorials/Lesson1/images/filters.png)
+---
 
+Task: filter the IA data to only include NY 8th grade students Math tests. This way you're only looking at Regents test takers.
+
+---
 
 ## Select
 Task:

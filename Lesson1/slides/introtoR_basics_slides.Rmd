@@ -131,6 +131,40 @@ filter(iris, Species == "setosa")
 * <small> This may cause problems if packages have functions with the same name. R will choose the version for the package loaded last. </small>
 * <small> Packages are attached in your current session and need to be attached every time you start a new session. </small>
 
+# Data Types
+
+## Data Types
+Data type | Example
+------------- | -------------
+Integer | `1`
+Logical | `TRUE`
+Numeric | `1.1`
+String / character  | `"Red"`
+Factor (enumerated string) | `"Amber"` or 2 in `c("Red","Amber","Green")`
+Complex | `i`
+Date | `r as.Date("2015-04-24")`
+NA | `r NA`
+
+## Data Functions
+Function | Use
+------------- | -------------
+`is.[data type]` | Whether a vector is of a particular type
+`as.[data type]` | Attempts to coerce a vector to a data type
+`str` | Structure of an object including class/data type, dimensions 
+`class` | The class(es)/data type(s) an object belongs to
+`summary` | Summarizes an object 
+`dput` | Get R code that recreates an object
+`unlist` | Simplify a list to a vector
+`dim` | Dimensions of a data type
+`length` | Length of a vector or list
+
+## Compound data types
+Data type | Info | Construction example(s)
+------------- | ------------- | -------------
+Vector | A 1D set of values of the same data type | `c(1,"a")` , `1:3`
+List | A collection of objects of various data types | `list(vector=c(1,"a")`, `df=data.frame(a=1:6))`
+Data.frame  | A 2D set of values of different data types | `data.frame(a=1:26, b=11:36)`
+
 # Other important key R functions 
 
 ## Generating and manipulating sequences
@@ -156,6 +190,7 @@ rep(1:3, each = 2)
 rep(c("A", "B", "C"), each = 6)
 
 ```
+
 
 
 ## Basic statistics
@@ -184,6 +219,13 @@ var(x)
 ```
 
 ---- 
+
+```{r, collapse=TRUE}
+sum(ifelse(x > 400, 1, 0))
+```
+
+
+---
 
 ```{r, collapse=TRUE}
 y = rnorm(x, 1, 0.2 * x) + x
@@ -299,6 +341,12 @@ x$y = 1:4
 
 - Hint: How many rows does `x` have?
 
+----
+```{r}
+mean(c(NA, 4, 2))
+```
+- Is this an error? 
+---
 
 # Questions so Far
 ## Any Questions you have from the tutorial?
@@ -326,9 +374,9 @@ What did you find to be the most challenging?
 
 ## Sample Script...
 
-```{r, echo=T, eval=F, tidy=TRUE, tidy.opts=list(width.cutoff=50)}
+```{r, eval=F, echo=T, message=FALSE, warning=FALSE, list(width.cutoff=50), tidy=TRUE, tidy.opts=list(width.cutoff=50)}
 # Set working directory
-setwd("S:/Data Analytics/Resource Library/R help")
+setwd("S:/Data Analytics/State Test Analysis/2015-2016/New York State Exams/Results Release/Tableau Data Files/")
 
 # Load packages
 library(readxl)
@@ -364,36 +412,64 @@ ggplot(plotdat, aes(Year, avgP, color=Subject)) +
 # Now you try!
 ***
 
-#### Using the *mpg* dataset, answer these questions.
 
-1. What is the manufacturer, model, and year of the car in the 42nd row?
-1. How many models of cars are in this data set? How many manufacturers?
-1. How many cars get over 19 mpg in the city?
-1. How many miles per gallon ON AVERAGE do the cars get on the highway? In the city?
-1. How many models of cars did Audi make in 1999?  
+**Using the comma_survey dataset in the fivethirtyeight dataset...**
 
-
+1. How do you load the fivethirtyeight package to find the comma_survey dataset?
+1. What is the income, education and location of the respondent in the 42nd row?
+1. How many respondents are in this data set? How many locations?
+1. How many respondents care about the oxford comma **A lot**? 
+1. What is the average *care rate* of the singular vs plural form of "data"? 
+1. How many **Male** respondents in the age range of **45-60** think that care about proper grammar is **Very important**?
 
 ***
 
 #### Answers!
-```{r, echo=F, message=FALSE, warning=FALSE}
+>1. How do you load the fivethirtyeight package to find the comma_survey dataset?
+
+```{r, echo=T, message=FALSE, warning=FALSE}
 library(tidyverse)
-df <- mpg
-df[42, c(1, 2, 4)]
-
-paste(length(unique(df$model)), length(unique(df$manufacturer)), sep= ", ")
-
-sum(mpg$cty > 19)
-
-paste(round(mean(mpg$hwy)), round(mean(mpg$cty)) , sep= ", ")
-
-x <- filter(mpg, manufacturer == "audi", year == 1999)
-length(unique(x$model))
+library(fivethirtyeight)
+df <- fivethirtyeight::comma_survey
 ```
+
+>2. What is the income, education and location of the respondent in the 42nd row?
+
+````{r, echo=F}
+df[42, c(4, 5, 6)]
+```
+
+>3. How many respondents are in this data set? How many locations?
+
+```{r, echo=F}
+paste(length(unique(df$respondent_id)), length(unique(df$location)), sep=", ")
+```
+
+----
+
+>4. How many respondents care about the oxford comma **A lot**? 
+
+```{r, echo=F}
+sum(df$care_oxford_comma == "A lot", na.rm=T)
+```
+
+>5. What is the average *care rate* of the singular vs plural form of "data"? 
+
+```{r, echo=F}
+scales::percent(mean(ifelse(df$data_singular_plural, 1, 0), na.rm=T))
+```
+
+>6. How many **Male** respondents in the age range of **45-60** think that care about proper grammar is **Very important**?
+
+```{r, echo=F}
+x <- filter(df, gender == "Male", age == "45-60", care_proper_grammar == "Very important")
+length(unique(x$respondent_id))
+```
+
 
 # Tips and Tricks
 ## Some Tips and Tricks
 >- **Use tab complete:** Press "tab" after typing the first few letters to find the function, variable, or file that you need without having to type it all in.
 >- **Highlight Strings:** You can highlight what you want to put quotes around at once.
 >- **Short Cuts:** Hightlight what you want to run and press CNT-ENTER to run it.
+      * Alt-Shit-K will bring up all the possible shortcuts. Once you get the hang of them, you can start creating your own. 

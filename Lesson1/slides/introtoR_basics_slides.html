@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Erin" />
-  <meta name="dcterms.date" content="2017-03-15" />
+  <meta name="dcterms.date" content="2017-03-16" />
   <title>Introduction to R: The Basics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -490,7 +490,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">Introduction to R: The Basics</h1>
     <h2 class="author">Erin</h2>
-    <h3 class="date">2017-03-15</h3>
+    <h3 class="date">2017-03-16</h3>
 </section>
 
 <section><section id="welcome-and-introduction" class="titleslide slide level1"><h1>Welcome and Introduction</h1></section><section id="before-we-jump-into-it-make-sure-that-you-have-rstudio-r-and-the-package-tidyverse-installed." class="slide level2">
@@ -612,6 +612,132 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li class="fragment"><small> Packages are attached in your current session and need to be attached every time you start a new session. </small></li>
 </ul>
 </section></section>
+<section><section id="data-types" class="titleslide slide level1"><h1>Data Types</h1></section><section id="data-types-1" class="slide level2">
+<h1>Data Types</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Data type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Integer</td>
+<td><code>1</code></td>
+</tr>
+<tr class="even">
+<td>Logical</td>
+<td><code>TRUE</code></td>
+</tr>
+<tr class="odd">
+<td>Numeric</td>
+<td><code>1.1</code></td>
+</tr>
+<tr class="even">
+<td>String / character</td>
+<td><code>&quot;Red&quot;</code></td>
+</tr>
+<tr class="odd">
+<td>Factor (enumerated string)</td>
+<td><code>&quot;Amber&quot;</code> or 2 in <code>c(&quot;Red&quot;,&quot;Amber&quot;,&quot;Green&quot;)</code></td>
+</tr>
+<tr class="even">
+<td>Complex</td>
+<td><code>i</code></td>
+</tr>
+<tr class="odd">
+<td>Date</td>
+<td>2015-04-24</td>
+</tr>
+<tr class="even">
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+</section><section id="data-functions" class="slide level2">
+<h1>Data Functions</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>is.[data type]</code></td>
+<td>Whether a vector is of a particular type</td>
+</tr>
+<tr class="even">
+<td><code>as.[data type]</code></td>
+<td>Attempts to coerce a vector to a data type</td>
+</tr>
+<tr class="odd">
+<td><code>str</code></td>
+<td>Structure of an object including class/data type, dimensions</td>
+</tr>
+<tr class="even">
+<td><code>class</code></td>
+<td>The class(es)/data type(s) an object belongs to</td>
+</tr>
+<tr class="odd">
+<td><code>summary</code></td>
+<td>Summarizes an object</td>
+</tr>
+<tr class="even">
+<td><code>dput</code></td>
+<td>Get R code that recreates an object</td>
+</tr>
+<tr class="odd">
+<td><code>unlist</code></td>
+<td>Simplify a list to a vector</td>
+</tr>
+<tr class="even">
+<td><code>dim</code></td>
+<td>Dimensions of a data type</td>
+</tr>
+<tr class="odd">
+<td><code>length</code></td>
+<td>Length of a vector or list</td>
+</tr>
+</tbody>
+</table>
+</section><section id="compound-data-types" class="slide level2">
+<h1>Compound data types</h1>
+<table style="width:58%;">
+<colgroup>
+<col style="width: 19%"></col>
+<col style="width: 19%"></col>
+<col style="width: 19%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data type</th>
+<th>Info</th>
+<th>Construction example(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vector</td>
+<td>A 1D set of values of the same data type</td>
+<td><code>c(1,&quot;a&quot;)</code> , <code>1:3</code></td>
+</tr>
+<tr class="even">
+<td>List</td>
+<td>A collection of objects of various data types</td>
+<td><code>list(vector=c(1,&quot;a&quot;)</code>, <code>df=data.frame(a=1:6))</code></td>
+</tr>
+<tr class="odd">
+<td>Data.frame</td>
+<td>A 2D set of values of different data types</td>
+<td><code>data.frame(a=1:26, b=11:36)</code></td>
+</tr>
+</tbody>
+</table>
+</section></section>
 <section><section id="other-important-key-r-functions" class="titleslide slide level1"><h1>Other important key R functions</h1></section><section id="generating-and-manipulating-sequences" class="slide level2">
 <h1>Generating and manipulating sequences</h1>
 </section><section class="slide level2">
@@ -663,6 +789,10 @@ x =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</s
 
 <span class="kw">var</span>(x)
 ## [1] 70698.09</code></pre></div>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(<span class="kw">ifelse</span>(x &gt;<span class="st"> </span><span class="dv">400</span>, <span class="dv">1</span>, <span class="dv">0</span>))
+## [1] 31</code></pre></div>
 </section><section class="slide level2">
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y =<span class="st"> </span><span class="kw">rnorm</span>(x, <span class="dv">1</span>, <span class="fl">0.2</span> *<span class="st"> </span>x) +<span class="st"> </span>x
@@ -785,6 +915,13 @@ x$y =<span class="st"> </span><span class="dv">1</span>:<span class="dv">4</span
 <ul>
 <li class="fragment">Hint: How many rows does <code>x</code> have?</li>
 </ul>
+</section><section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">4</span>, <span class="dv">2</span>))</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<ul>
+<li class="fragment"><h2 id="is-this-an-error">Is this an error?</h2></li>
+</ul>
 </section></section>
 <section><section id="questions-so-far" class="titleslide slide level1"><h1>Questions so Far</h1></section><section id="any-questions-you-have-from-the-tutorial" class="slide level2">
 <h1>Any Questions you have from the tutorial?</h1>
@@ -811,7 +948,7 @@ x$y =<span class="st"> </span><span class="dv">1</span>:<span class="dv">4</span
 <section><section id="sample-script" class="titleslide slide level1"><h1>Sample Script…</h1></section><section id="sample-script-1" class="slide level2">
 <h1>Sample Script…</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set working directory</span>
-<span class="kw">setwd</span>(<span class="st">&quot;S:/Data Analytics/Resource Library/R help&quot;</span>)
+<span class="kw">setwd</span>(<span class="st">&quot;S:/Data Analytics/State Test Analysis/2015-2016/New York State Exams/Results Release/Tableau Data Files/&quot;</span>)
 
 <span class="co"># Load packages</span>
 <span class="kw">library</span>(readxl)
@@ -845,25 +982,49 @@ plotdat &lt;-<span class="st"> </span>statetestNYS %&gt;%<span class="st"> </spa
 </section></section>
 <section><section id="now-you-try" class="titleslide slide level1"><h1>Now you try!</h1></section><section class="slide level2">
 
-<h4 id="using-the-mpg-dataset-answer-these-questions.">Using the <em>mpg</em> dataset, answer these questions.</h4>
+<p><strong>Using the comma_survey dataset in the fivethirtyeight dataset…</strong></p>
 <ol type="1">
-<li class="fragment">What is the manufacturer, model, and year of the car in the 42nd row?</li>
-<li class="fragment">How many models of cars are in this data set? How many manufacturers?</li>
-<li class="fragment">How many cars get over 19 mpg in the city?</li>
-<li class="fragment">How many miles per gallon ON AVERAGE do the cars get on the highway? In the city?</li>
-<li class="fragment">How many models of cars did Audi make in 1999?</li>
+<li class="fragment">How do you load the fivethirtyeight package to find the comma_survey dataset?</li>
+<li class="fragment">What is the income, education and location of the respondent in the 42nd row?</li>
+<li class="fragment">How many respondents are in this data set? How many locations?</li>
+<li class="fragment">How many respondents care about the oxford comma <strong>A lot</strong>?</li>
+<li class="fragment">What is the average <em>care rate</em> of the singular vs plural form of “data”?</li>
+<li class="fragment">How many <strong>Male</strong> respondents in the age range of <strong>45-60</strong> think that care about proper grammar is <strong>Very important</strong>?</li>
 </ol>
 </section><section class="slide level2">
 
 <h4 id="answers">Answers!</h4>
+<ol type="1">
+<li>How do you load the fivethirtyeight package to find the comma_survey dataset?</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(fivethirtyeight)
+df &lt;-<span class="st"> </span>fivethirtyeight::comma_survey</code></pre></div>
+<ol start="2" type="1">
+<li>What is the income, education and location of the respondent in the 42nd row?</li>
+</ol>
 <pre><code>## # A tibble: 1 × 3
-##   manufacturer       model  year
-##          &lt;chr&gt;       &lt;chr&gt; &lt;int&gt;
-## 1        dodge caravan 2wd  2008</code></pre>
-<pre><code>## [1] &quot;38, 15&quot;</code></pre>
-<pre><code>## [1] 56</code></pre>
-<pre><code>## [1] &quot;23, 17&quot;</code></pre>
-<pre><code>## [1] 3</code></pre>
+##   household_income                        education location
+##             &lt;fctr&gt;                           &lt;fctr&gt;    &lt;chr&gt;
+## 1     $0 - $24,999 Some college or Associate degree  Pacific</code></pre>
+<ol start="3" type="1">
+<li>How many respondents are in this data set? How many locations?</li>
+</ol>
+<pre><code>## [1] &quot;1129, 10&quot;</code></pre>
+</section><section class="slide level2">
+
+<ol start="4" type="1">
+<li>How many respondents care about the oxford comma <strong>A lot</strong>?</li>
+</ol>
+<pre><code>## [1] 291</code></pre>
+<ol start="5" type="1">
+<li>What is the average <em>care rate</em> of the singular vs plural form of “data”?</li>
+</ol>
+<pre><code>## [1] &quot;49.9%&quot;</code></pre>
+<ol start="6" type="1">
+<li>How many <strong>Male</strong> respondents in the age range of <strong>45-60</strong> think that care about proper grammar is <strong>Very important</strong>?</li>
+</ol>
+<pre><code>## [1] 88</code></pre>
 </section></section>
 <section><section id="tips-and-tricks" class="titleslide slide level1"><h1>Tips and Tricks</h1></section><section id="some-tips-and-tricks" class="slide level2">
 <h1>Some Tips and Tricks</h1>
@@ -871,6 +1032,7 @@ plotdat &lt;-<span class="st"> </span>statetestNYS %&gt;%<span class="st"> </spa
 <li><strong>Use tab complete:</strong> Press “tab” after typing the first few letters to find the function, variable, or file that you need without having to type it all in.</li>
 <li><strong>Highlight Strings:</strong> You can highlight what you want to put quotes around at once.</li>
 <li><strong>Short Cuts:</strong> Hightlight what you want to run and press CNT-ENTER to run it.</li>
+<li>Alt-Shit-K will bring up all the possible shortcuts. Once you get the hang of them, you can start creating your own.</li>
 </ul>
 </section></section>
     </div>

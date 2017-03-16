@@ -7,6 +7,11 @@ output: revealjs::revealjs_presentation
 
 
 ## Rstudio
+
+Review questions.
+
+---
+
 ##### Let's now take some time to really poke around at Rstudio as a program.
 >- Scripts and tables
 >- Enviroment and History
