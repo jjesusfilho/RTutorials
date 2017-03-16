@@ -565,8 +565,8 @@ iris %&gt;%<span class="st"> </span>
   )
 )</code></pre>
 <p>is much more confusing than…</p>
-</section><section id="difference-bettween-piping-and-not-piping." class="slide level2" data-transition="none-in">
-<h1>Difference bettween piping and not piping.</h1>
+</section><section id="understanding-the-pipe-with-a-story-1" class="slide level2" data-transition="none-in">
+<h1>Understanding the pipe with a story</h1>
 <pre><code>bop_on(
   scoop_up(
     hop_through(foo_foo, forest),
@@ -575,13 +575,13 @@ iris %&gt;%<span class="st"> </span>
   head
   )
 )</code></pre>
-<p>is much more confusing then…</p>
+<p>is much more confusing than…</p>
 <pre><code>foo_foo %&gt;%
   hop_through(forest) %&gt;%
   scoop_up(field_mouse) %&gt;%
   bop_on(head)
 )</code></pre>
-</section><section id="difference-bettween-piping-and-not-piping.-1" class="slide level2">
+</section><section id="difference-bettween-piping-and-not-piping." class="slide level2">
 <h1>Difference bettween piping and not piping.</h1>
 <p>You tell me, what is happening in this code?!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hourly_delay &lt;-<span class="st"> </span><span class="kw">filter</span>(
@@ -620,7 +620,7 @@ iris %&gt;%<span class="st"> </span>
 </section><section class="slide level2">
 
 <h3 id="pipe-chain-should-be-larger-than-1">Pipe Chain should be larger than 1</h3>
-<p>Do no do this</p>
+<p>Do not do this</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df %&gt;%<span class="st"> </span><span class="kw">str</span>()</code></pre></div>
 <p>when</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(df)</code></pre></div>

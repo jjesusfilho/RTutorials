@@ -95,8 +95,7 @@ bop_on(
 ```
 is much more confusing than...
 
-
-## Difference bettween piping and not piping. {data-transition="none-in"}
+## Understanding the pipe with a story {data-transition="none-in"}
 
 ```
 bop_on(
@@ -108,7 +107,7 @@ bop_on(
   )
 )
 ```
-is much more confusing then...
+is much more confusing than...
 
 ```
 foo_foo %>%
@@ -161,7 +160,7 @@ hourly_delay <- flights %>%
 ***
 
 ### Pipe Chain should be larger than 1
-Do no do this
+Do not do this
 ```{r, eval=F}
 df %>% str()
 ```
