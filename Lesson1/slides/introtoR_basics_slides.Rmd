@@ -49,7 +49,7 @@ Language = c(
 # why R?
 
 ***
-### What problems have you seen or come in across in the way you currently do data analyses and manipulation that you wish you could change?
+### What problems have you seen or come across in the way you currently do data analyses and manipulation that you wish you could change?
 
 Discuss with team.
 
@@ -467,9 +467,4 @@ length(unique(x$respondent_id))
 ```
 
 
-# Tips and Tricks
-## Some Tips and Tricks
->- **Use tab complete:** Press "tab" after typing the first few letters to find the function, variable, or file that you need without having to type it all in.
->- **Highlight Strings:** You can highlight what you want to put quotes around at once.
->- **Short Cuts:** Hightlight what you want to run and press CNT-ENTER to run it.
-      * Alt-Shit-K will bring up all the possible shortcuts. Once you get the hang of them, you can start creating your own. 
+
