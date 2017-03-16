@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R: Tidyverse"
+title: "Introduction to R: Data Transformation"
 author: "Erin Grand"
 date: "3/15/2017"
 output: revealjs::revealjs_presentation
@@ -48,18 +48,37 @@ How to do you currently think about a task in excel or tableau? Learn how to tra
 All these function work similarly, the first argument is a data frame, the next describe what you want to do with the data frame, and the result is a new data frame. 
 
 ## Filter
-![](~/GitHub/RTutorials/Lesson1/images/filters.png)
+![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/filters.png?raw=true)
 ---
 
 Task: filter the IA data to only include NY 8th grade students Math tests. This way you're only looking at Regents test takers.
 
 ---
+## Arrange
+- Arrange works by you providing the column names you'd like to sort by. The order you provide them will determine the ties in the preceding columns.
+- You can use `desc()` to order in decending order
+- Missing values (`NA`s) are always sorted at the end
+
+Task: Sort the filtered IAs to find the 8th grade students with the highest Math scores.
 
 ## Select
-Task:
+It’s not uncommon to get datasets with many variables. In this case, the first challenge is often narrowing in on the variables you’re actually interested in. `select()` allows you to rapidly zoom in on just those.
 
-## Arrange
-Task:
+Task: The IA data has SO MANY columns which aren't really useful if we only want to at the passing rate of these students. Find the ones we need and select only them.
+
+## Select Continued
+There are a number of different way to select columns.
+You can find out more about each of these on the Tidy Data cheatsheet, or by looking at `?select`
+- `column1:column3`: selects all the column between column1 and column3
+- `starts_with("abc")`: matches column names that begin with "abc"
+- `ends_with("abc")`: matches column names that end with "abc"
+- `contains("ID")`: will select only columns that contain ID (not case-sensitive)
+- `num_range("x", 1:3)`: selects columns titled `x1`, `x2`, `x3`
+- `matches()`: tselects variavles that match a regular expression, don't use this unless you know regular expressions
+- `-X3` will select all column expect `X3`
+- `one_of()` takes a vector of characters and will select all the columns that have the same name as you provide
+
+
 
 ## Mutate
 Task:
