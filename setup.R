@@ -44,17 +44,15 @@ Sys.setenv(LANGUAGE = "en")
 # assessMap <- loaddata(IAdata, "Assessment mapping", T) %>%
 #   select(Assessment.Name:Year)
 # 
-setwd("S:/Data Analytics/Resource Library/R Help/data")
-
-# saveRDS(IAs, "IAs.rds")
-# saveRDS(assessMap, "assessMap.rds")
-# saveRDS(schoolMap, "schoolMap.rds")
-# saveRDS(lastyearEnrollment, "lastyearEnrollment.rds")
-# saveRDS(thisyearEnrollment, "thisyearEnrollment.rds")
+# saveRDS(IAs, "S:/Data Analytics/Resource Library/R Help/dataIAs.rds")
+# saveRDS(assessMap, "S:/Data Analytics/Resource Library/R Help/dataassessMap.rds")
+# saveRDS(schoolMap, "S:/Data Analytics/Resource Library/R Help/dataschoolMap.rds")
+# saveRDS(lastyearEnrollment, "S:/Data Analytics/Resource Library/R Help/datalastyearEnrollment.rds")
+# saveRDS(thisyearEnrollment, "S:/Data Analytics/Resource Library/R Help/datathisyearEnrollment.rds")
 
 
-IAs <- readRDS("IAs.rds")
-assessMap <- readRDS("assessMap.rds")
-schoolMap <- readRDS("schoolMap.rds")
-lastyearEnrollment <- readRDS("lastyearEnrollment.rds")
-thisyearEnrollment <- readRDS("thisyearEnrollment.rds")
+IAs <- readRDS("S:/Data Analytics/Resource Library/R Help/data/IAs.rds")
+assessMap <- readRDS("S:/Data Analytics/Resource Library/R Help/data/assessMap.rds")
+schoolMap <- readRDS("S:/Data Analytics/Resource Library/R Help/data/schoolMap.rds")
+lastyearEnrollment <- readRDS("S:/Data Analytics/Resource Library/R Help/data/lastyearEnrollment.rds")
+thisyearEnrollment <- readRDS("S:/Data Analytics/Resource Library/R Help/data/thisyearEnrollment.rds")

@@ -10,7 +10,7 @@ Focusing on packages found in tidyverse
 
 
 ## Packages
-Download tidyverse:
+Download tidyverse.
 Imports: dplyr, ggplot2, lubricate, readr, readxl, stringr, tibble, tidyr, magrittr
 
 ```{r, message=FALSE, warning=FALSE}
