@@ -60,9 +60,10 @@ The pipe makes combining output from various different functions much easier to 
 
 ```{r}
 #Option A:
-mutate(
-  filter(iris, Sepal.Width > 4), 
-  total_width = Sepal.Width + Petal.Width)
+mutate( 
+      filter(iris, Sepal.Width > 4), 
+    total_width = Sepal.Width + Petal.Width
+  )
 ```
 ***
 
@@ -81,39 +82,69 @@ iris %>%
 ![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/dancing_penguin.gif?raw=true)
 </div>
 
-## Understanding the pipe with a story {data-transition="none-out"}
+
+## Story Time 
+
+The story
+```
+Little bunny Foo Foo
+Went hopping through the forest
+Scooping up the field mice
+And bopping them on the head
+```
+
+
+## Story Time 
+
+The story
 
 ```
-bop_on(
-  scoop_up(
-    hop_through(foo_foo, forest),
-      field_mouse
-    ),
-  head
-  )
+Little bunny Foo Foo
+Went hopping through the forest
+Scooping up the field mice
+And bopping them on the head
+```
+
+Could look like this in code. Where each step Foo Foo takes is a new function.
+
+```{r, eval=F}
+foo_foo <- little_bunny()
+foo_foo_1 <- hop_on(foo_foo, through = forest)
+foo_foo_2 <- scoop(foo_foo_1, up = field_mice)
+foo_foo_3 <- bop(foo_foo_2, on = head)
+```
+
+## Story Time  {data-transition="none-out"}
+
+```
+bop(
+  scoop(
+    hop(foo_foo, through = forest),
+    up = field_mice
+  ), 
+  on = head
 )
 ```
 is much more confusing than...
 
-## Understanding the pipe with a story {data-transition="none-in"}
+## Story Time {data-transition="none-in"}
 
 ```
-bop_on(
-  scoop_up(
-    hop_through(foo_foo, forest),
-      field_mouse
-    ),
-  head
-  )
+bop(
+  scoop(
+    hop(foo_foo, through = forest),
+    up = field_mice
+  ), 
+  on = head
 )
 ```
 is much more confusing than...
 
 ```
 foo_foo %>%
-  hop_through(forest) %>%
-  scoop_up(field_mouse) %>%
-  bop_on(head)
+  hop(through = forest) %>%
+  scoop(up = field_mouse) %>%
+  bop(on = head)
 )
 ```
 ## Difference bettween piping and not piping.
