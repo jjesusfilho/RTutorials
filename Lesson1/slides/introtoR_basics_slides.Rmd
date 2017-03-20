@@ -269,7 +269,9 @@ Though if you need to create for than one new column, it's much more conceise to
 ## Access an element with []
 ```{r, collapse = TRUE}
 x <- 1:5
-x[5]
+x[3]
+x[3] <- 42
+x
 ```
 
 
