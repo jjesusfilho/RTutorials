@@ -248,6 +248,31 @@ plot(x, y, main = "Linear model")
 abline(my_model, col = "red")
 ```
  
+# Assignment and Access
+
+## Variables are asigned with `<-`
+
+```{r, collapse=T}
+x <- 5 
+x <- c(1, 3, 4, 5)
+df <- data.frame(x = 1:5, y = 2:6)
+```
+
+## Columns in a Dataframe can be accesed or created with `$`
+
+```{r, collapse=T}
+df$z <- df$x + df$y
+```
+
+Though if you need to create for than one new column, it's much more conceise to use `mutate()`.
+
+## Access an element with []
+```{r, collapse = TRUE}
+x <- 1:5
+x[5]
+```
+
+
  
 # Where to get help
 
@@ -299,8 +324,14 @@ my_object
 ```{r, error=TRUE}
 iris[, 6]
 ```
-
 - Hint:  How many columns does the `iris` data frame have?
+
+----
+
+```{r, error=TRUE}
+a < - 5
+```
+- Hint: look carefully
 
 ---- 
 ```{r, error=TRUE}
