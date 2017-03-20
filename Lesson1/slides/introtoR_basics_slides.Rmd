@@ -248,7 +248,7 @@ plot(x, y, main = "Linear model")
 abline(my_model, col = "red")
 ```
  
-# Assignment and Access
+# Assignment and Subsetting
 
 ## Variables are asigned with `<-`
 
@@ -266,7 +266,11 @@ df$z <- df$x + df$y
 
 Though if you need to create for than one new column, it's much more conceise to use `mutate()`.
 
-## Access an element with []
+## Access an element with `[]`
+![](https://pbs.twimg.com/media/CO2_qPVWsAAErbv.png)
+
+<small>From [\@hadleywickham](https://twitter.com/hadleywickham)</small>
+
 ```{r, collapse = TRUE}
 x <- 1:5
 x[3]
@@ -274,8 +278,27 @@ x[3] <- 42
 x
 ```
 
+---
 
- 
+## Different Ways to Subset Vectors
+
+Subset Type | Example | Example Output
+------------- | ------------- | -------------
+Nothing | `x[]` | `r x[] `
+Positive integers | `x[5]` | `r x[5]`
+Negative integers | `x[-1]` | `r x[-1]`
+Logical vectors | `x[c(TRUE, FALSE, TRUE, FALSE, TRUE)]` | `r x[c(TRUE, FALSE, TRUE, FALSE, TRUE)]`
+Zero | `x[0]` | `r x[0]`
+
+---
+
+## Subsetting Data frames
+
+* `$` + column name to create or access a column
+* `df[row, column]`
+
+*Note that a much more detailed overview of subsetting can be found in the [Subsetting](http://adv-r.had.co.nz/Subsetting.html) chapter of Advanced R.*
+
 # Where to get help
 
 ## Built-in help
