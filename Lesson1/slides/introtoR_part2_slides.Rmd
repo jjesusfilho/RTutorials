@@ -145,7 +145,7 @@ Result:
 ```{r, eval=T, echo=F}
 source("../../setup.R")
 IAs %>% 
-    left_join(assessMap, by=c("Assessment"="Assessment.Name", "Grade")) %>%
+  left_join(assessMap, by=c("Assessment"="Assessment.Name", "Grade")) %>%
   filter(Subject == "Math", Grade == "8", Assessment.Type == "NYS", Cycle == 3) %>%
   select(ID, Cycle, Cut.Score, Overall, School ) %>% 
   mutate(Pass = ifelse(Overall >= Cut.Score, 1, 0)   
@@ -169,4 +169,13 @@ IAs %>%
 
 # Pipe + DPLYR + Tidyverse
 
+## Assigment
+TasK: Talent Dec hasrequested a rundown on the racial demographics of our NY students
+
+1. Read in the enrollment data file
+2. Explore the file, is there anything missing that you need?
+3. Get / join any data that you may need that was missing
+4. QC and Clean the enrollment data
+5. Find how many many students are in each Ethnicity bucket
+6. Arrange the data for ease of requester
 
