@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R: The Rstudio IDE"
-author: "Erin"
+author: "Erin"ead
 date: '`r Sys.Date()`'
 output: revealjs::revealjs_presentation
 ---
