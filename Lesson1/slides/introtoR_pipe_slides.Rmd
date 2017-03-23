@@ -112,14 +112,14 @@ Could look like this in code. Where each step Foo Foo takes is a new function.
 
 ```{r, eval=F}
 foo_foo <- little_bunny()
-foo_foo_1 <- hop_on(foo_foo, through = forest)
+foo_foo_1 <- hop(foo_foo, through = forest)
 foo_foo_2 <- scoop(foo_foo_1, up = field_mice)
 foo_foo_3 <- bop(foo_foo_2, on = head)
 ```
 
 ## Story Time  {data-transition="none-out"}
 
-```
+```{r, eval=F}
 bop(
   scoop(
     hop(foo_foo, through = forest),
@@ -132,7 +132,7 @@ is much more confusing than...
 
 ## Story Time {data-transition="none-in"}
 
-```
+```{r, eval=F}
 bop(
   scoop(
     hop(foo_foo, through = forest),
@@ -143,7 +143,7 @@ bop(
 ```
 is much more confusing than...
 
-```
+```{r, eval=F}
 foo_foo %>%
   hop(through = forest) %>%
   scoop(up = field_mouse) %>%
@@ -230,9 +230,11 @@ is so much more compact and easier to read.
 ### A pipe group should be designed to complete a specific task
 Keeping a pipe group to one task will help with further rules (specifically length).
 
+![](http://weknowmemes.com/generator/uploads/generated/g1334758962270838552.jpg)
+
 ***
 
-### It is okay to change object along the pipe
+### It is okay to change objects along the pipe
 
 Most commonly, you might go from a dataframe to a plot, or a list to a dataframe.
 

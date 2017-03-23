@@ -3,6 +3,7 @@ revealjs::revealjs_presentation:
   theme: white
   self_contained: yes
   incremental: yes
+  fig_caption: true
   reveal_options:
     slideNumber: true
   

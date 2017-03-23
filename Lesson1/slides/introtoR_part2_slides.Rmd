@@ -170,7 +170,7 @@ IAs %>%
 # Pipe + DPLYR + Tidyverse
 
 ## Assigment
-TasK: Talent Dec hasrequested a rundown on the racial demographics of our NY students
+TasK: Talent Dev hasrequested a rundown on the racial demographics of our NY students
 
 1. Read in the enrollment data file
 2. Explore the file, is there anything missing that you need?

@@ -258,15 +258,17 @@ x <- c(1, 3, 4, 5)
 df <- data.frame(x = 1:5, y = 2:6)
 ```
 
+<small>Shortcut: CNT + Shirt + M</small>
+
 ## Columns in a Dataframe can be accesed or created with `$`
 
 ```{r, collapse=T}
 df$z <- df$x + df$y
 ```
 
-Though if you need to create for than one new column, it's much more conceise to use `mutate()`.
+Though if you need to create more than one new column, it's much more conceise to use `mutate()`.
 
-## Access an element with `[]`
+## Accessing elements
 ![](https://pbs.twimg.com/media/CO2_qPVWsAAErbv.png)
 
 <small>From [\@hadleywickham](https://twitter.com/hadleywickham)</small>
@@ -331,7 +333,7 @@ If I get an error I haven't seen, the first thing I will do is Google it. Usuall
 1.  Re-read the error and then think about it for a minute.  See if you can't get a grasp on what's really going wrong.
 2.  Check your code for errors.  Spelling errors, misplaced commas, forgotten parenthesis can all cause problems
 3.  Look it up - I very, very rarely get an error that someone else hasn't seen before.
-4.  If you still can't find a solution then you can ask for help. I can answer brief questions or you can post questions online at Stack Overflow.  Sometimes package developers have specific discussion groups on Google groups or Github.  These can be very useful.
+4.  If you still can't find a solution then you can ask for help. I can answer brief questions or you can post questions online at Stack Overflow.  
 
 ---- 
 
