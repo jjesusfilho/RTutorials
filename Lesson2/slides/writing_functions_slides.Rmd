@@ -1,0 +1,22 @@
+---
+title: "Writing Functions"
+author: "Erin Grand"
+date: "3/16/2017"
+output: revealjs::revealjs_presentation
+---
+
+# Writing Functions
+
+## Simple Function
+
+## Assignments within Functions
+x <- 1
+in a a funtion does not change the value of x outside the function
+
+## Named Arugments
+
+## ... Operator
+
+# Using Custom Functions
+
+# PURR
