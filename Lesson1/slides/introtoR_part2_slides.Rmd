@@ -35,7 +35,6 @@ How to do you currently think about a task in excel or tableau? Learn how to tra
 1. What is your process for creating a new column?
 1. How do you sort data?
 
-
 # DPLYR
 
 ##  Five Most Important DPLYR Functions
@@ -78,7 +77,7 @@ You can find out more about each of these on the Tidy Data cheat sheet, or by lo
 ---
 
 >- `num_range("x", 1:3)`: selects columns titled `x1`, `x2`, `x3`
->- `matches()`: tselects variavles that match a regular expression, don't use this unless you know regular expressions
+>- `matches()`: selects variables that match a regular expression, don't use this unless you know regular expressions
 >- `-X3` will select all column expect `X3`
 >- `one_of()` takes a vector of characters and will select all the columns that have the same name as you provide
 
@@ -134,7 +133,7 @@ summarise(by_year, avgDeaths = mean(total.deaths, na.rm = TRUE))
 
 ## Arrange
 >- Arrange works by you providing the column names you'd like to sort by. The order you provide them will determine the ties in the preceding columns.
->- You can use `desc()` to order in decending order
+>- You can use `desc()` to order in descending order
 >- Missing values (`NA`s) are always sorted at the end
 
 **Task: Sort the final table to look at the schools with the highest predicted pass rate for the Regents Math exam.**
@@ -167,15 +166,55 @@ IAs %>%
 1. These steps are great for analysis! What about data cleaning and QCing? Discuss how you might use `dplyr` functions in data cleaning and/or QCing.
 
 
-# Pipe + DPLYR + Tidyverse
+# Joins
+## Which Join is which?
+![](https://imasters.com.br/wp-content/uploads/2013/05/uuu.png)
+
+## Which Join is which?
+
+Type of Join | What it does | Example Code 
+-------------|-------------|-------------
+Left Join | Keeps the entire first table, joins matching rows from the second | `left_join(x, y, by="ID")`
+Right Join | Keeps the entire second table, joins matching rows from the first | `right_join(x, y, by="ID")`
+Full Join | Keeps the rows from both tables, filling in missing rows with NA | `full_join(x, y, by="ID")`
+Inner Join | Keeps ONLY the rows in both tables | `inner_join(x, y, by="ID")`
+Semi Join | keeps one row for every row in the first table that matches the second | `semi_join(x, y, by="ID")`
+Anti Join | Removes rows that match in the second tables | `anti_row(x, y, by="ID")`
+
+## Joining by more than one Column
+```{r, eval=F}
+
+```
+
+## When to use what Join?
+Type of Join | Use case
+-------------|------------
+Left Join | Default
+Right Join | You're map is the first in the pipe
+Full Join | You don't want to lose any rows in either data set
+Inner Join | You don't want any NAs
+Semi Join | You don't want any "duplicates" of the first data set
+Anti Join | You want to filter out rows
+
+
+## Advantages of Anti-Join
+* It can be really useful to "filter" out data from one data set that is in another
+  * For example, in text analysis you want to ignore stop words (and, but, the..etc). 
+
+## What about Right-Join?
+* There aren't many use cases for right joining data, HOWEVER if you are piping a set of set which creates your map and you want to join it back to the original data, to continue the pipe you would use a right join.
+
+
+
+# Putting it Together
 
 ## Assigment
-TasK: Talent Dev hasrequested a rundown on the racial demographics of our NY students
+Task: Talent Dev has requested a rundown on the racial demographics of our NY students
 
 1. Read in the enrollment data file
 2. Explore the file, is there anything missing that you need?
 3. Get / join any data that you may need that was missing
-4. QC and Clean the enrollment data
-5. Find how many many students are in each Ethnicity bucket
+4. QC and clean the enrollment data
+5. Find how many many students are in each ethnicity bucket
 6. Arrange the data for ease of requester
 
