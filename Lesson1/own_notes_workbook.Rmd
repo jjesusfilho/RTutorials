@@ -121,19 +121,6 @@ IAsDF <- IAs %>%
 
 ```
 
-
-### Task: Demographics exercise.
-1. Read in the enrollment data file
-2. Explore the file, is there anything missing that you need?
-3. Get / join any data that you may need that was missing
-4. QC and Clean the enrollment data
-5. Find how many many students are in each Ethnicity bucket
-6. Arrange the data for ease of requester
-```{r}
-
-```
-
-
 ### Examples:
 
 ```{r, eval=T}

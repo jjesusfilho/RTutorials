@@ -142,16 +142,16 @@ summarise(by_year, avgDeaths = mean(total.deaths, na.rm = TRUE))
 
 Result:
 ```{r, eval=T, echo=F}
-source("../../setup.R")
-IAs %>% 
-  left_join(assessMap, by=c("Assessment"="Assessment.Name", "Grade")) %>%
-  filter(Subject == "Math", Grade == "8", Assessment.Type == "NYS", Cycle == 3) %>%
-  select(ID, Cycle, Cut.Score, Overall, School ) %>% 
-  mutate(Pass = ifelse(Overall >= Cut.Score, 1, 0)   
-         ) %>% 
-  group_by(School) %>%
-  summarise(Pass.Rate = scales::percent(mean(Pass))) %>%
-  arrange(desc(Pass.Rate)) 
+#source("../../setup.R")
+#IAs %>% 
+#  left_join(assessMap, by=c("Assessment"="Assessment.Name", "Grade")) %>%
+#  filter(Subject == "Math", Grade == "8", Assessment.Type == "NYS", Cycle == 3) %>%
+#  select(ID, Cycle, Cut.Score, Overall, School ) %>% 
+#  mutate(Pass = ifelse(Overall >= Cut.Score, 1, 0)   
+#         ) %>% 
+#  group_by(School) %>%
+#  summarise(Pass.Rate = scales::percent(mean(Pass))) %>%
+#  arrange(desc(Pass.Rate)) 
 ```
 
 <div align="right">
@@ -170,20 +170,25 @@ IAs %>%
 ## Which Join is which?
 ![](https://imasters.com.br/wp-content/uploads/2013/05/uuu.png)
 
-## Which Join is which?
+***
 
 Type of Join | What it does | Example Code 
--------------|-------------|-------------
-Left Join | Keeps the entire first table, joins matching rows from the second | `left_join(x, y, by="ID")`
-Right Join | Keeps the entire second table, joins matching rows from the first | `right_join(x, y, by="ID")`
+-------------|-------------------------------|-------------
+Left Join |Keeps rows in 1st table, joins matching rows from 2nd | `left_join(x, y, by="ID")`
+Right Join | Keeps rows in 2nd table, joins matching rows from 1st | `right_join(x, y, by="ID")`
+
+***
+
+Type of Join | What it does | Example Code 
+-------------|-------------------------------|-------------
 Full Join | Keeps the rows from both tables, filling in missing rows with NA | `full_join(x, y, by="ID")`
 Inner Join | Keeps ONLY the rows in both tables | `inner_join(x, y, by="ID")`
-Semi Join | keeps one row for every row in the first table that matches the second | `semi_join(x, y, by="ID")`
-Anti Join | Removes rows that match in the second tables | `anti_row(x, y, by="ID")`
+Semi Join | keeps one row for every row in the 1st table that matches the 2nd | `semi_join(x, y, by="ID")`
+Anti Join | Removes rows that match the 2nd table | `anti_row(x, y, by="ID")`
 
 ## Joining by more than one Column
 ```{r, eval=F}
-
+left_join(newTE, oldTE, by = c("Teacher"="Teacher.Name", "School"), suffix=c(".new", ".old") 
 ```
 
 ## When to use what Join?
@@ -213,7 +218,7 @@ Task: Talent Dev has requested a rundown on the racial demographics of our NY st
 
 1. Read in the enrollment data file
 2. Explore the file, is there anything missing that you need?
-3. Get / join any data that you may need that was missing
+3. Join any data that you may need that was missing from the enrollment set.
 4. QC and clean the enrollment data
 5. Find how many many students are in each ethnicity bucket
 6. Arrange the data for ease of requester
