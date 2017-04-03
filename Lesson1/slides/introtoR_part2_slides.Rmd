@@ -128,6 +128,15 @@ by_year <- group_by(avengers, year, gender)
 summarise(by_year, avgDeaths = mean(total.deaths, na.rm = TRUE))
 ```
 
+----
+
+```{r, echo=FALSE}
+by_year <- group_by(avengers, year, gender)
+summarise(by_year, avgDeaths = mean(total.deaths, na.rm = TRUE)) %>%
+  spread(gender, avgDeaths) %>%
+  mutate(gender.difference = FEMALE - MALE)
+```
+
 ---
 
 
@@ -142,16 +151,16 @@ summarise(by_year, avgDeaths = mean(total.deaths, na.rm = TRUE))
 
 Result:
 ```{r, eval=T, echo=F}
-#source("../../setup.R")
-#IAs %>% 
-#  left_join(assessMap, by=c("Assessment"="Assessment.Name", "Grade")) %>%
-#  filter(Subject == "Math", Grade == "8", Assessment.Type == "NYS", Cycle == 3) %>%
-#  select(ID, Cycle, Cut.Score, Overall, School ) %>% 
-#  mutate(Pass = ifelse(Overall >= Cut.Score, 1, 0)   
-#         ) %>% 
-#  group_by(School) %>%
-#  summarise(Pass.Rate = scales::percent(mean(Pass))) %>%
-#  arrange(desc(Pass.Rate)) 
+source("../../setup.R")
+IAs %>%
+ left_join(assessMap, by=c("Assessment"="Assessment.Name", "Grade")) %>%
+ filter(Subject == "Math", Grade == "8", Assessment.Type == "NYS", Cycle == 3) %>%
+ select(ID, Cycle, Cut.Score, Overall, School ) %>%
+ mutate(Pass = ifelse(Overall >= Cut.Score, 1, 0)
+        ) %>%
+ group_by(School) %>%
+ summarise(Pass.Rate = scales::percent(mean(Pass))) %>%
+ arrange(desc(Pass.Rate))
 ```
 
 <div align="right">
