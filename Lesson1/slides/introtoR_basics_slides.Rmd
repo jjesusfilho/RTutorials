@@ -85,15 +85,17 @@ R is calculator
 ## NO!! 
 
 R is a programming language.  Specifically it's a programming language built for statistics.  
-
 And that's what it's best at.
+
+<div align="centered">
+![](http://emojis.slackmojis.com/emojis/images/1450319440/23/all_the_things.jpg?1450319440)
+</div>
 
 ---  
 
-- R is a dialect of the S language which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn't changed much since 1998.  
-- The philosophy behind S (and R) was to allow users to begin in an interactive environment that didn't explicitly feel like programming.  
-- As their needs and skills grew they could move into more of the programming aspects.  This helps us understand some of why R is the way it is.
-
+* R is a dialect of the S language which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn't changed much since 1998.  
+* The philosophy behind S (and R) was to allow users to begin in an interactive environment that didn't explicitly feel like programming.
+* As their needs and skills grew they could move into more of the programming aspects.  This helps us understand some of why R is the way it is.
 
 
 # Packages
@@ -109,8 +111,8 @@ And that's what it's best at.
 ## Installing packages
 
 * Packages need only be installed once, although you may have to re-install when upgrading R or when you want to use a newer version of a package.
-
 * To install from CRAN all one needs to do is:
+
 ```
 install.packages("tidyverse")
 ```
@@ -223,12 +225,14 @@ var(x)
 ```{r, collapse=TRUE}
 sum(ifelse(x > 400, 1, 0))
 ```
-
+<div align="right">
+![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/dancing_penguin.gif?raw=true)
+</div>
 
 ---
 
 ```{r, collapse=TRUE}
-y = rnorm(x, 1, 0.2 * x) + x
+y <- rnorm(x, 1, 0.2 * x) + x
 plot(x,y)
 ```
 
@@ -255,10 +259,10 @@ abline(my_model, col = "red")
 ```{r, collapse=T}
 x <- 5 
 x <- c(1, 3, 4, 5)
-df <- data.frame(x = 1:5, y = 2:6)
+df <- data.frame(x = 1:5, y = 2:6) 
 ```
 
-<small>Shortcut: CNT + Shirt + M</small>
+<small>Shortcut: Alt + - </small>
 
 ## Columns in a Dataframe can be accesed or created with `$`
 
@@ -326,6 +330,8 @@ R-package authors are required to document their functions although this happens
 
 If I get an error I haven't seen, the first thing I will do is Google it. Usually within a few clicks I can find what went wrong.
 
+![](http://media1.giphy.com/media/cp9mafwcwRCkU/giphy-downsized.gif)  
+
 ---- 
 
 **But sometimes an easy answer can't be found so here's a quick process to walk through:**
@@ -351,7 +357,7 @@ my_object
 ```{r, error=TRUE}
 iris[, 6]
 ```
-- Hint:  How many columns does the `iris` data frame have?
+- Hint: How many columns does the `iris` data frame have?
 
 ----
 
@@ -403,13 +409,10 @@ x$y = 1:4
 ```{r}
 mean(c(NA, 4, 2))
 ```
-- Is this an error? 
+- Hint: Is this an error? 
 ---
 
 # Questions so Far
-## Any Questions you have from the tutorial?
-What did you find to be the most challenging?
-
 
 # Scripting
 

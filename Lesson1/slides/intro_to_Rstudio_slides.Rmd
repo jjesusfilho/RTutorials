@@ -50,3 +50,7 @@ Try clicking on one of the variables with a BLUE ARROW. What did you see?
 >- **Highlight Strings:** You can highlight what you want to put quotes around at once.
 >- **Short Cuts:** Hightlight what you want to run and press CNT-ENTER to run it.
       * Alt-Shit-K will bring up all the possible shortcuts. Once you get the hang of them, you can start creating your own. 
+  
+<div, align="right">    
+![](http://emojis.slackmojis.com/emojis/images/1450319441/5/sheepy.gif?1450319441)
+</div>

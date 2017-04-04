@@ -171,23 +171,7 @@ humpty_dumpty %>%
 
 ---
 
-## Difference bettween piping and not piping.
-You tell me, what is happening in this code?!
-
-```{r, eval=F, echo=T}
-hourly_delay <- filter(
-  summarise(
-    group_by(
-      filter(flights, !is.na(dep_delay)), 
-      date, hour), 
-    delay = mean(dep_delay), 
-    n = n()), 
-  n > 10
-)
-```
-
-*** 
-Is this easier to understand?
+## Example Pipe Group
 ```{r, eval=F, echo=T}
 hourly_delay <- flights %>% 
   filter(!is.na(dep_delay)) %>%
