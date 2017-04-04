@@ -84,14 +84,14 @@ R is calculator
 
 ## NO!! 
 
-R is a programming languange.  Specifically it's a programming language built for statistics.  
+R is a programming language.  Specifically it's a programming language built for statistics.  
 
 And that's what it's best at.
 
 ---  
 
-- R is a dialect of the S languange which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn't changed much since 1998.  
-- The philosopy behind S (and R) was to allow users to begin in an interactive enviroment that didn't explicitly feel like programming.  
+- R is a dialect of the S language which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn't changed much since 1998.  
+- The philosophy behind S (and R) was to allow users to begin in an interactive environment that didn't explicitly feel like programming.  
 - As their needs and skills grew they could move into more of the programming aspects.  This helps us understand some of why R is the way it is.
 
 
@@ -108,7 +108,7 @@ And that's what it's best at.
 
 ## Installing packages
 
-* Packages need only be installed once, although you may have to reinstall when upgrading R or when you want to use a newer version of a package.
+* Packages need only be installed once, although you may have to re-install when upgrading R or when you want to use a newer version of a package.
 
 * To install from CRAN all one needs to do is:
 ```
@@ -126,7 +126,7 @@ library(tidyverse)
 filter(iris, Species == "setosa")
 ```
 
-* <small> `library()` loads the package into memory and allows you to use the functions within without naming the package directly everytime. </small>
+* <small> `library()` loads the package into memory and allows you to use the functions within without naming the package directly every time. </small>
 * <small>  Technically what is happening here is that when attaching a package R puts those functions in your search path, the place R looks first for objects and functions. </small>
 * <small> This may cause problems if packages have functions with the same name. R will choose the version for the package loaded last. </small>
 * <small> Packages are attached in your current session and need to be attached every time you start a new session. </small>
@@ -266,7 +266,7 @@ df <- data.frame(x = 1:5, y = 2:6)
 df$z <- df$x + df$y
 ```
 
-Though if you need to create more than one new column, it's much more conceise to use `mutate()`.
+Though if you need to create more than one new column, it's much more concise to use `mutate()`.
 
 ## Accessing elements
 ![](https://pbs.twimg.com/media/CO2_qPVWsAAErbv.png)
@@ -318,7 +318,7 @@ R-package authors are required to document their functions although this happens
 
 * Sometimes authors will provide more detailed documentation online.  
 * This is more common for more recent packages where the authors may have a github repository and associated webpage.  
-* Often discussion pages (Google groups, Stackoverflow) can also be a useful source of help
+* Often discussion pages (Google groups, Stack overflow) can also be a useful source of help
 
 # Errors
 
@@ -473,7 +473,7 @@ ggplot(plotdat, aes(Year, avgP, color=Subject)) +
 
 **Using the comma_survey dataset in the fivethirtyeight dataset...**
 
-1. How do you load the fivethirtyeight package to find the comma_survey dataset?
+1. How do you load the fivethirtyeight package to find the comma_survey data set?
 1. What is the income, education and location of the respondent in the 42nd row?
 1. How many respondents are in this data set? How many locations?
 1. How many respondents care about the oxford comma **A lot**? 

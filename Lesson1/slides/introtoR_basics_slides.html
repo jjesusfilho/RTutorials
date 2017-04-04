@@ -572,14 +572,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <pre><code>2 + 2</code></pre>
 </section><section id="no" class="slide level2">
 <h1>NO!!</h1>
-<p>R is a programming languange. Specifically it’s a programming language built for statistics.</p>
+<p>R is a programming language. Specifically it’s a programming language built for statistics.</p>
 <p>And that’s what it’s best at.</p>
 </section><section class="slide level2">
 
 <ul>
-<li class="fragment">R is a dialect of the S languange which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn’t changed much since 1998.<br />
+<li class="fragment">R is a dialect of the S language which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn’t changed much since 1998.<br />
 </li>
-<li class="fragment">The philosopy behind S (and R) was to allow users to begin in an interactive enviroment that didn’t explicitly feel like programming.<br />
+<li class="fragment">The philosophy behind S (and R) was to allow users to begin in an interactive environment that didn’t explicitly feel like programming.<br />
 </li>
 <li class="fragment">As their needs and skills grew they could move into more of the programming aspects. This helps us understand some of why R is the way it is.</li>
 </ul>
@@ -596,7 +596,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="installing-packages" class="slide level2">
 <h1>Installing packages</h1>
 <ul>
-<li class="fragment"><p>Packages need only be installed once, although you may have to reinstall when upgrading R or when you want to use a newer version of a package.</p></li>
+<li class="fragment"><p>Packages need only be installed once, although you may have to re-install when upgrading R or when you want to use a newer version of a package.</p></li>
 <li class="fragment"><p>To install from CRAN all one needs to do is:</p>
 <pre><code>install.packages(&quot;tidyverse&quot;)</code></pre></li>
 </ul>
@@ -606,7 +606,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">filter</span>(iris, Species ==<span class="st"> &quot;setosa&quot;</span>)</code></pre></div>
 <ul>
-<li class="fragment"><small> <code>library()</code> loads the package into memory and allows you to use the functions within without naming the package directly everytime. </small></li>
+<li class="fragment"><small> <code>library()</code> loads the package into memory and allows you to use the functions within without naming the package directly every time. </small></li>
 <li class="fragment"><small> Technically what is happening here is that when attaching a package R puts those functions in your search path, the place R looks first for objects and functions. </small></li>
 <li class="fragment"><small> This may cause problems if packages have functions with the same name. R will choose the version for the package loaded last. </small></li>
 <li class="fragment"><small> Packages are attached in your current session and need to be attached every time you start a new session. </small></li>
@@ -836,7 +836,7 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class=
 </section><section id="columns-in-a-dataframe-can-be-accesed-or-created-with" class="slide level2">
 <h1>Columns in a Dataframe can be accesed or created with <code>$</code></h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df$z &lt;-<span class="st"> </span>df$x +<span class="st"> </span>df$y</code></pre></div>
-<p>Though if you need to create more than one new column, it’s much more conceise to use <code>mutate()</code>.</p>
+<p>Though if you need to create more than one new column, it’s much more concise to use <code>mutate()</code>.</p>
 </section><section id="accessing-elements" class="slide level2">
 <h1>Accessing elements</h1>
 <figure>
@@ -915,7 +915,7 @@ x
 </li>
 <li class="fragment">This is more common for more recent packages where the authors may have a github repository and associated webpage.<br />
 </li>
-<li class="fragment">Often discussion pages (Google groups, Stackoverflow) can also be a useful source of help</li>
+<li class="fragment">Often discussion pages (Google groups, Stack overflow) can also be a useful source of help</li>
 </ul>
 </section></section>
 <section><section id="errors" class="titleslide slide level1"><h1>Errors</h1></section><section id="google-it" class="slide level2">
@@ -1059,7 +1059,7 @@ plotdat &lt;-<span class="st"> </span>statetestNYS %&gt;%<span class="st"> </spa
 
 <p><strong>Using the comma_survey dataset in the fivethirtyeight dataset…</strong></p>
 <ol type="1">
-<li class="fragment">How do you load the fivethirtyeight package to find the comma_survey dataset?</li>
+<li class="fragment">How do you load the fivethirtyeight package to find the comma_survey data set?</li>
 <li class="fragment">What is the income, education and location of the respondent in the 42nd row?</li>
 <li class="fragment">How many respondents are in this data set? How many locations?</li>
 <li class="fragment">How many respondents care about the oxford comma <strong>A lot</strong>?</li>

@@ -21,7 +21,7 @@ mpg <- mpg
 ![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/MagrittePipe.jpg?raw=true)
 
 ## Introduction to R's Not-a-Pipe: %>%
-I was once told me that `%>%` is called not-a-pipe since *pipe* was already taken for another symbol (|), but considering it is from the magrittr package, I believe the real story is based on Magritte's famous image.
+I was once told me that `%>%` is called not-a-pipe since *pipe* was already taken for another symbol (|).
 
 ## What is the pipe?
 <div align="left">![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/magrittr.png?raw=true)
@@ -71,7 +71,7 @@ mutate(
 
 This code computes the same output as before, but is much easier to read. 
 
-Rember, code should be written to be understood by **future you**. Make future you happy!
+Remember, code should be written to be understood by **future you**. Make future you happy!
 
 ```{r}
 #Option B:
@@ -206,8 +206,8 @@ hourly_delay <- flights %>%
 
 ## Rules for Piping {.build}
 1. The pipe chain should be larger than 1
-1. A pipe group should be desgined to complete a specific task
-1. It is okay to change objects along the pipe (i.e pass in a dataframe and output a plot)
+1. A pipe group should be designed to complete a specific task
+1. It is okay to change objects along the pipe (i.e pass in a data frame and output a plot)
 1. Be data source aware
 1. Pipe operations should be "atomic"
 1. Keep your pipes "short"
@@ -236,7 +236,7 @@ Keeping a pipe group to one task will help with further rules (specifically leng
 
 ### It is okay to change objects along the pipe
 
-Most commonly, you might go from a dataframe to a plot, or a list to a dataframe.
+Most commonly, you might go from a data frame to a plot, or a list to a data frame.
 
 ```{r, fig.height=2, fig.width=4}
 iris %>% 
