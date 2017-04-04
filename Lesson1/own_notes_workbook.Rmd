@@ -2,7 +2,7 @@
 title: "Take Your Own Notes"
 output: 
   html_notebook: 
-    highlight: pygments
+    highlight: pygments 
     theme: flatly
 ---
 
@@ -18,12 +18,16 @@ plot(cars)
 I'm going to start you off with loading `tidyverse` into your Notebook. Huzzah!
 ```{r, echo=F, message=FALSE, warning=FALSE}
 library(tidyverse)
-#source("setup.R") # if you haven't run the setup file, you should uncomment this line
 ```
 
 I will load uncommon data for assignments. This code block will take awhile to run, so be patient.
 
 ```{r, collapse=T}
+IAs <- readRDS("S:/Data Analytics/Resource Library/R Help/data/IAs.rds")
+assessMap <- readRDS("S:/Data Analytics/Resource Library/R Help/data/assessMap.rds")
+schoolMap <- readRDS("S:/Data Analytics/Resource Library/R Help/data/schoolMap.rds")
+thisyearEnrollment <- readRDS("S:/Data Analytics/Resource Library/R Help/data/thisyearEnrollment.rds")
+
 str(thisyearEnrollment)
 str(IAs)
 str(assessMap)

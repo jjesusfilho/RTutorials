@@ -527,3 +527,6 @@ length(unique(x$respondent_id))
 <div align="right">
 ![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/panda_dance.gif?raw=true)
 </div>
+
+
+

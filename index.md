@@ -22,11 +22,11 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 - Writing Functions
 
 ## Rstudio Cheatsheets
-- [Base R](http://github.com/rstudio/cheatsheets/raw/master/source/pdfs/base-r.pdf)
-- [Rstudio IDE](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
-- [Data Import](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-import-cheatsheet.pdf)
-- [Data Wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-- [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+- [Base R](http://github.com/rstudio/cheatsheets/raw/master/source/pdfs/base-r.pdf){:target="_blank"}
+- [Rstudio IDE](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf){:target="_blank"}
+- [Data Import](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-import-cheatsheet.pdf){:target="_blank"}
+- [Data Wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf){:target="_blank"}
+- [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf){:target="_blank"}
 
 ## Other
 - [Notes from a talk at Columbia by Hadley Wickham](hadley_notes.nb.html){:target="_blank"}
@@ -36,5 +36,5 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 Email me at erin.grand@uncommonschools.org with any questions or comments. If you find any typos, feel free to send in a pull request to fix them. 
 
 ## Acknowledgements
-Special Thanks to Hadely Wickham and Steph Locke for getting me started. I proudly borrowed materials from both of them and the UCVM R Bootcamp. More complete citations and thanks [here](acknowledgements.md).
+Special Thanks to Hadely Wickham and Steph Locke for getting me started. I proudly borrowed materials from both of them and the UCVM R Bootcamp. More complete citations and thanks [here](acknowledgements.html).
 
