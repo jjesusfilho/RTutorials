@@ -25,23 +25,23 @@ All, set? Great let's begin!
 ### Which language do people use for what?
 ```{r, echo=F}
 kable(data.frame("What do you want to do?" = c(
-"Building a website",
-"Web application",
-"Phone Application",
-"Numerical Computation",
-"Stats",
-"Visualization",
-"Typesetting",
-"Big Data"),
+  "Building a website",
+  "Web application",
+  "Phone Application",
+  "Numerical Computation",
+  "Stats",
+  "Visualization",
+  "Typesetting",
+  "Big Data"),
 Language = c(
-"HTML, CSS",
-"Java Script",
-"Swift, Objective C, Java",
-"IDL, Python, Matlab",
-"R, Strata",
-"R, JavaScript (D3)",
-"LaTeX, Mardown",
-"SQL, Scala, Python")
+  "HTML, CSS",
+  "Java Script",
+  "Swift, Objective C, Java",
+  "IDL, Python, Matlab",
+  "R, Strata",
+  "R, JavaScript (D3)",
+  "LaTeX, Mardown",
+  "SQL, Scala, Python")
 ), align = "lc")
 ```
 
@@ -199,7 +199,7 @@ rep(c("A", "B", "C"), each = 6)
 
 ```{r, collapse=TRUE}
 set.seed(3823)
-x = sample(1:1000, size = 50, replace = TRUE)
+x <- sample(1:1000, size = 50, replace = TRUE)
 ```
 
 ```{r, collapse=TRUE}
@@ -241,7 +241,7 @@ plot(x,y)
 ### Simple linear model
 
 ```{r}
-my_model = lm(y ~ x)
+my_model <- lm(y ~ x)
 summary(my_model)
 ```
 
@@ -392,14 +392,14 @@ if (nothing == NA) {
 
 ---- 
 ```{r, error=TRUE}
-my_data = read.table("mydata.txt")
+my_data <- read.table("mydata.txt")
 ```
 
 - Hint: Read the error message carefully.
 
 ----
 ```{r, error=TRUE}
-x = data.frame(y = NULL)
+x <- data.frame(y = NULL)
 x$y = 1:4
 ```
 

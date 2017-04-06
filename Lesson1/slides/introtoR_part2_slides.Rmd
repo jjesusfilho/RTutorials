@@ -137,7 +137,12 @@ summarise(by_year, avgDeaths = mean(total.deaths, na.rm = TRUE)) %>%
   mutate(gender.difference = FEMALE - MALE)
 ```
 
----
+
+## Group by and Summarize
+
+**Task: Arrgeate your data to find the predicted pass rate per school for the Regents Math exam.**
+
+
 
 
 ## Arrange

@@ -148,7 +148,6 @@ foo_foo %>%
   hop(through = forest) %>%
   scoop(up = field_mouse) %>%
   bop(on = head)
-)
 ```
 
 ## Your Turn {data-transition="none-out"}

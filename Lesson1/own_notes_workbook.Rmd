@@ -30,7 +30,7 @@ thisyearEnrollment <- readRDS("S:/Data Analytics/Resource Library/R Help/data/th
 
 str(thisyearEnrollment)
 str(IAs)
-str(assessMap)
+#str(assessMap)
 ```
 
 
@@ -41,6 +41,8 @@ This is your file now, feel free to take notes and try out code as you wish. Yay
  
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+
 
 ----
 ## Getting Around RStudio
@@ -62,6 +64,10 @@ Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by press
 1. Does order you load packages matter? What might you do if you need a function that's named the same in two different packages?
 ```{r, eval=FALSE, echo=TRUE}
 # answer here, you don't need to complete the functions
+library(MASS)
+library(tidyverse)
+select()
+MASS::select()
 ```
 
 2. Can I combine data types in one vector? Try the code and see what happens. 
@@ -87,6 +93,17 @@ sqrt(2) ^ 2 == 2
 1. What is the average *care rate* of the singular vs plural form of "data"? 
 1. How many **Male** respondents in the age range of **45-60** think that care about proper grammar is **Very important**?
 
+```{r}
+library(fivethirtyeight)
+df <- fivethirtyeight::comma_survey
+mean(ifelse(df$care_data == "A lot", 1, 0), na.rm=T)
+
+x <- filter(df, 
+       gender == "Male", 
+       age == "45-60",
+       care_proper_grammar == "Very important")
+length(x)
+```
 
 ```{r}
 # Write your answers here.
