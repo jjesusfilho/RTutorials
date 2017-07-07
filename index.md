@@ -17,9 +17,17 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 ### Assignments
 - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"}
 
-## Lesson 2 (links coming soon)
-- Tidy Data
-- Writing Functions
+## Lesson 2
+### Slides
+- [Style Best Practices](Lesson2/best_practices.html){:target="_blank"}
+- [Tidy Data](Lesson2/slides/tidy-data-slides.html){:target="_blank"}
+- [More with Mutate](Lesson2/slides/mutate_review.html){:target="_blank"}
+- [Writing Functions](Lesson2/slides/writing_functions_slides.html){:target="_blank"}
+
+### Workbooks
+- [Janitor Package](Lesson2/slides/janitor.html){:target="_blank"}
+
+---
 
 ## Rstudio Cheatsheets
 - [Base R](http://github.com/rstudio/cheatsheets/raw/master/source/pdfs/base-r.pdf){:target="_blank"}
