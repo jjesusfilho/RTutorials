@@ -1,22 +1,24 @@
 ---
 title: "Tidy Data"
 author: "Erin Grand"
-date: "3/15/2017"
+date: "July 7, 2017"
 output: revealjs::revealjs_presentation
 ---
 
+# Tidy Data
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(knitr)
 opts_chunk$set(collapse = FALSE)
-library(dplyr)
-library(tidyr)
+library(tidyverse)
 library(fivethirtyeight)
 ```
 
+
 ## Tidy data
-<div class="centerd">
-[](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.jpg)
+
+<div class="centered">
+![](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.jpg)
 </div>
 
 ### The essence of tidy data is:
@@ -29,35 +31,30 @@ library(fivethirtyeight)
 
 ### Why?
 
-- standarized
-- easier for you and others to analyze
-- easier for the computer to analyze
-- easier to go from Tidy format into other formats if needed
+- Standardized
+- Easier for you and others to analyze
+- Easier for the computer to analyze
+- Easier to go from Tidy format into other formats if needed
 
 ---
 
-Example: Is this messy or tidy data?
+Example: Is this untidy or tidy data?
 
-```{r, collapse=T}
-head(iris)
+```{r, collapse=T, echo=FALSE}
+fivethirtyeight::airline_safety %>%
+  select(airline, incidents_85_99:fatalities_00_14) %>%
+  head()
 ```
 
 ---
 
 Is this tidy data?
-```{r, collapse=T, echo=F}
-gather(iris, petal_measurments, value, -Species) %>% head()
+```{r, collapse=T, echo=FALSE}
+dplyr::starwars %>% head()
 ```
 
 
----
-For a more detailed summary of the tidy data concept, see the `tidyr` vignette
 
----
-```
-browseVignettes("tidyr")
-```
----
 
 # Cleaning and restructuring data
 
@@ -76,17 +73,20 @@ browseVignettes("tidyr")
 - Think about how you want your data structured for analysis
 - What are your observations?  What are your variables?  Do you need multiple tables to capture your data better?
 - Use `tidyr::gather()` and `tidyr::spread()` to appropriately transform your data
-- If you have super messy data with lots of code needed to clean it up consider saving a cleaned up copy of your data and creating a separate script that documents everything you did.
+- If you have super messy data with lots of code needed to clean it up, save the cleaned data separately for the final analysis output.
 
-# Analysis
-## Doing useful stuff with your data
+# Gather and Spread
 
-What you do next will depend on your own specific analyis.  Somethings you may do include:  
+---
+        
+tidyr |	`gather`|	`spread`
+------|-------|---------
+reshape2	|`melt`	| `cast`
+spreadsheets |	unpivot	| pivot
+databases	| fold	| unfold
 
-- making plots
-- statistical summaries (mean, min, max, etc)
-- statistical tests (Are the means different? Did my experiment work?!?!)
-- add in to a larger data set such as sample data for an RNA-seq experiment
+---
+
 
 
 ## Pipes: Ceci n'est pas un pipe
@@ -103,5 +103,41 @@ iris %>%
 
 
 
+# Unite and Seperate
+
+## Unite is a concatate function.
+- You define the name of the new column, and the ones you want to combine, in the order you wish to do so
+
+```{r, eval=FALSE}
+unite(temp, school, grade)
+```
+
+Creates columns called "temp" from school and grade. 
+ 
+- You can also set the separator value with sep=" ", the default is "snake case" i.e sep="_"
+
+```{r, eval=FALSE}
+unite(temp, school, grade, sep="")
+```
+
+
+## separate
+The opposite of unite!
+- separates values in a single column into new columns
+- Works best when every value in the column has the same number of possible elements to separate
+- If not, fill parameter 
+- Define what the split is with sep="_". The default value is any non-alpha-numeric values (.,_...etc)
+
+## Practice
+Subject, Raw Score, Scaled Score -> ELA Raw Score, ELA Scaled Score, Math Raw Score, Math Scaled Score
+
+```{r, eval=FALSE}
+df <- tibble(subject = c("ELA", "Math"), scaled_score = c(100, 200), raw_score = c(20, 50))
+
+df %>% unite(temp, raw_score, scaled_score) %>%
+  spread(subject, temp) %>%
+  separate(ELA, c("ELA_raw_score", "ELA_scaled_score")) %>%
+  separate(Math, c("Math_raw_score", "Math_scaled_score")) 
+```
 
 

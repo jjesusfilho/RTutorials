@@ -1,22 +1,220 @@
 ---
 title: "Writing Functions"
 author: "Erin Grand"
-date: "3/16/2017"
+date: "7/7/2017"
 output: revealjs::revealjs_presentation
 ---
 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(readxl)
+library(janitor)
+library(purrr)
+library(dplyr)
+```
+
 # Writing Functions
+
+## What is a function?
+Discuss.
+
+## Why and when should you write your own functions?
+
+- never copy paste more than twice if you can
+- use function as "recipe" for data analysis
+
 
 ## Simple Function
 
+```
+add <- function(x) {
+  sum(x)
+}
+
+```
+
+```
+best_pets <- function(animal){
+  if(animal == "Cats") {
+      print("Cats are better than dogs.")
+    }
+  else if(animal == "Dogs") {
+      print("Dogs are better than cats")
+    }
+  else{
+    print("You must choose: Cats or Dogs")
+  }
+}
+```
+
+## Structure
+- `function(args)`: let R know that are you writing a function and not to directly implement this section of code till you call it
+- `{}` the _code_ of your function should be between {'s
+- `foo <- function(args){}`: name your function with the assignment operator
+  - name your function in the VERB sense of what you're function is accomplishing
+  - i.e: `clean_data()`, `get_cohort()`, `()`...etc
+- `return(x)`: return the value of x from your function
+
+
+## Real world example
+```{r, eval=FALSE}
+read_file <- function(file, sheet_name=1){
+  df <- read_excel(file, sheet = sheet_name, col_names = TRUE, col_types = "text") %>%
+    remove_empty_cols() %>%
+    remove_empty_rows() %>%
+    clean_names()
+  return(df)
+}
+
+read_file("~/data.xlsx")
+```
+
+
+
 ## Assignments within Functions
-x <- 1
-in a a funtion does not change the value of x outside the function
 
-## Named Arugments
+- `x <- 1` in a a funtion does not change the value of x outside the function
+- If you do not call `return(x)` at the end of an argument, the last thing created is automatically returned. 
+  - It's best to get in the habbit of using `return` in all functions
 
-## ... Operator
+## Arugments
+- name the arguments something that makes sense to use throughout the function
+- you can totally have more than one argument
+- Default arguments
 
-# Using Custom Functions
 
-# PURR
+```{r, eval=FALSE}
+read_file <- function(file, sheet_name=1){
+  df <- read_excel(file, sheet = sheet_name, col_names = TRUE, col_types = "text") %>%
+    remove_empty_cols() %>%
+    remove_empty_rows() %>%
+    clean_names()
+  return(df)
+}
+
+read_file("~/data.xlsx")
+```
+
+# Using Custom Functions in DPLYR
+
+
+```{r, echo=FALSE}
+students <- tibble::tribble(
+  ~student_id, ~grade, ~school_year, ~es_grad, ~backfilled,
+   4641219404,     09,    "2016-17",  NA,        1,
+   5677497066,     07,    "2015-16",  1,         0,
+   4410073751,     04,    "2016-17",  NA,        0,
+   5165383282,     06,    "2016-17",  1,         0,
+   7414861057,     03,    "2016-17",  NA,        1,
+   8899701876,     10,    "2016-17",  NA,        0,
+   5814766659,     05,    "2015-16",  NA,        1,
+   4523939000,     04,    "2015-16",  NA,        1,
+   2852910440,     09,    "2015-16",  1,         NA,
+   4237200058,     06,    "2016-17",  1,         0,
+   6288262677,     04,    "2015-16",  NA,        NA,
+   1511873670,     03,    "2015-16",  NA,        0
+  )
+
+```
+
+
+## Example with `mutate()`
+
+```{r, collapse=TRUE}
+get_cohort <- function(grade, school_year) {
+  years_to_grad <- 12 - as.numeric(grade) # add the as.numeric() due to possibility of leading 0s
+  year <- stringr::str_sub(school_year, -2, -1) %>% paste0("20", .) %>% as.numeric()
+  cohort <- year + years_to_grad
+  return(cohort)
+}
+
+get_cohort(05, "2014-15") # just try it out on one example
+
+students %>%
+  mutate(cohort = get_cohort(grade, school_year)) %>% # run through all the students
+  head()
+```
+
+## Example with `mutate_at()`
+```{r}
+ignore_nas <- function(x){
+  ifelse(is.na(x), 0, x)
+}
+
+class_yes_no <- function(x){
+  x <- ignore_nas(x)
+  ifelse(x == 1, "Yes", "No")
+}
+
+students %>% mutate_at(vars(es_grad, backfilled), class_yes_no)
+```
+
+
+
+# Using Custom Functions with PURRR
+
+
+
+## `purrr::map_x`
+
+Map functions
+
+- `map_df`: outputs a data frame, usally by sticking multiple inputs together **THIS IS THE ONE YOU WILL USE**
+- `map_chr`: outputs a character
+- `map_int`: outputs an interger
+- `map`: outputs a list **Do not use this without Erin's help**
+
+---
+
+Three ways to call map:
+
+---
+
+### One Line:
+input 1: list or column vector of inputs
+input 2: function name
+input 3+: other aruguments for the the function
+
+```
+map_df(filepaths, read_excel, col_names=T)
+
+```
+
+---
+
+### Custom function with one input
+
+input 1: list or column vector of inputs
+input 2: function name
+
+```
+combine_new_data <- function(file){
+  read_excel(file)
+}
+
+map_df(filepaths, combine_ny_data)
+
+```
+---
+
+### Write the function in map
+input 1: list or column vector of inputs
+input 2: code, begining with `~` and include `.x` for the inputs
+_note: strspilt is pretty annoying, but can be really useful for strings_
+
+```{r}
+# example: you have text such as UCHS_ELA09 and you want just UCHS
+schools <- c("UCHS_ELA09", "UCC_ALG02")
+map_chr(schools, ~strsplit(.x, "_")[[1]][1])
+```
+
+# Extra
+
+## Group Max
+```{r}
+df <- tibble(school = c("EBCS", "EBCS"), score = c(100, 50), teacher = c("x", "y"))
+df %>%
+  group_by(school) %>%
+  mutate(max_score_by_school = max(score),
+         best_teacher = map2_chr(score, teacher, ~.y[which.max(.x)])
+  )
+```

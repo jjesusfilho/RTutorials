@@ -488,12 +488,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">Tidy Data</h1>
     <h2 class="author">Erin Grand</h2>
-    <h3 class="date">3/15/2017</h3>
+    <h3 class="date">5/30/2017</h3>
 </section>
 
-<section id="tidy-data" class="slide level2">
+<section><section id="tidy-data" class="titleslide slide level1"><h1>Tidy Data</h1></section><section id="tidy-data-1" class="slide level2">
 <h1>Tidy data</h1>
-<div class="centerd">
+<div class="centered">
 <p><a href="https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.jpg"></a></p>
 </div>
 <h3 id="the-essence-of-tidy-data-is">The essence of tidy data is:</h3>
@@ -502,44 +502,54 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Each observation forms a row</li>
 <li>Each type of observational unit forms a table</li>
 </ol>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
 <h3 id="why">Why?</h3>
 <ul>
-<li>standarized</li>
-<li>easier for you and others to analyze</li>
-<li>easier for the computer to analyze</li>
-<li>easier to go from Tidy format into other formats if needed</li>
+<li>Standardized</li>
+<li>Easier for you and others to analyze</li>
+<li>Easier for the computer to analyze</li>
+<li>Easier to go from Tidy format into other formats if needed</li>
 </ul>
-</section>
-<section class="slide level2">
+</section><section class="slide level2">
 
-<p>Example: Is this messy or tidy data?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(iris)
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-## 2          4.9         3.0          1.4         0.2  setosa
-## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa
-## 5          5.0         3.6          1.4         0.2  setosa
-## 6          5.4         3.9          1.7         0.4  setosa</code></pre></div>
-</section>
-<section class="slide level2">
+<p>Example: Is this untidy or tidy data?</p>
+<pre><code>## # A tibble: 56 x 7
+##                  airline incidents_85_99 fatal_accidents_85_99
+##                    &lt;chr&gt;           &lt;int&gt;                 &lt;int&gt;
+##  1            Aer Lingus               2                     0
+##  2              Aeroflot              76                    14
+##  3 Aerolineas Argentinas               6                     0
+##  4            Aeromexico               3                     1
+##  5            Air Canada               2                     0
+##  6            Air France              14                     4
+##  7             Air India               2                     1
+##  8       Air New Zealand               3                     0
+##  9       Alaska Airlines               5                     0
+## 10              Alitalia               7                     2
+## # ... with 46 more rows, and 4 more variables: fatalities_85_99 &lt;int&gt;,
+## #   incidents_00_14 &lt;int&gt;, fatal_accidents_00_14 &lt;int&gt;,
+## #   fatalities_00_14 &lt;int&gt;</code></pre>
+</section><section class="slide level2">
 
 <p>Is this tidy data?</p>
-<pre><code>##   Species petal_measurments value
-## 1  setosa      Sepal.Length   5.1
-## 2  setosa      Sepal.Length   4.9
-## 3  setosa      Sepal.Length   4.7
-## 4  setosa      Sepal.Length   4.6
-## 5  setosa      Sepal.Length   5.0
-## 6  setosa      Sepal.Length   5.4</code></pre>
-<pre><code>browseVignettes(&quot;tidyr&quot;)</code></pre>
-</section>
-<section class="slide level2">
-
-</section>
+<pre><code>## # A tibble: 87 x 13
+##                  name height  mass    hair_color  skin_color eye_color
+##                 &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;         &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;
+##  1     Luke Skywalker    172    77         blond        fair      blue
+##  2              C-3PO    167    75          &lt;NA&gt;        gold    yellow
+##  3              R2-D2     96    32          &lt;NA&gt; white, blue       red
+##  4        Darth Vader    202   136          none       white    yellow
+##  5        Leia Organa    150    49         brown       light     brown
+##  6          Owen Lars    178   120   brown, grey       light      blue
+##  7 Beru Whitesun lars    165    75         brown       light      blue
+##  8              R5-D4     97    32          &lt;NA&gt;  white, red       red
+##  9  Biggs Darklighter    183    84         black       light     brown
+## 10     Obi-Wan Kenobi    182    77 auburn, white        fair blue-gray
+## # ... with 77 more rows, and 7 more variables: birth_year &lt;dbl&gt;,
+## #   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+</section></section>
 <section><section id="cleaning-and-restructuring-data" class="titleslide slide level1"><h1>Cleaning and restructuring data</h1></section><section id="step-1-make-sure-it-imported-correctly" class="slide level2">
 <h1>Step 1: Make sure it imported correctly</h1>
 <ul>
@@ -555,18 +565,37 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Think about how you want your data structured for analysis</li>
 <li>What are your observations? What are your variables? Do you need multiple tables to capture your data better?</li>
 <li>Use <code>tidyr::gather()</code> and <code>tidyr::spread()</code> to appropriately transform your data</li>
-<li>If you have super messy data with lots of code needed to clean it up consider saving a cleaned up copy of your data and creating a separate script that documents everything you did.</li>
+<li>If you have super messy data with lots of code needed to clean it up, save the cleaned data separately for the final analysis output.</li>
 </ul>
 </section></section>
-<section><section id="analysis" class="titleslide slide level1"><h1>Analysis</h1></section><section id="doing-useful-stuff-with-your-data" class="slide level2">
-<h1>Doing useful stuff with your data</h1>
-<p>What you do next will depend on your own specific analyis. Somethings you may do include:</p>
-<ul>
-<li>making plots</li>
-<li>statistical summaries (mean, min, max, etc)</li>
-<li>statistical tests (Are the means different? Did my experiment work?!?!)</li>
-<li>add in to a larger data set such as sample data for an RNA-seq experiment</li>
-</ul>
+<section><section id="gather-and-spread" class="titleslide slide level1"><h1>Gather and Spread</h1></section><section class="slide level2">
+
+<table>
+<thead>
+<tr class="header">
+<th>tidyr</th>
+<th><code>gather</code></th>
+<th><code>spread</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>reshape2</td>
+<td><code>melt</code></td>
+<td><code>cast</code></td>
+</tr>
+<tr class="even">
+<td>spreadsheets</td>
+<td>unpivot</td>
+<td>pivot</td>
+</tr>
+<tr class="odd">
+<td>databases</td>
+<td>fold</td>
+<td>unfold</td>
+</tr>
+</tbody>
+</table>
 </section><section id="pipes-ceci-nest-pas-un-pipe" class="slide level2">
 <h1>Pipes: Ceci n’est pas un pipe</h1>
 <p>Don’t forget to use your pipes!</p>
@@ -574,23 +603,46 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span class="st">    </span><span class="kw">gather</span>(petal_measurments, value, -Species) %&gt;%<span class="st"> </span>
 <span class="st">    </span><span class="kw">group_by</span>(Species, petal_measurments) %&gt;%<span class="st"> </span>
 <span class="st">    </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(value))</code></pre></div>
-<pre><code>## Source: local data frame [12 x 3]
-## Groups: Species [?]
-## 
+<pre><code>## # A tibble: 12 x 3
+## # Groups:   Species [?]
 ##       Species petal_measurments  mean
 ##        &lt;fctr&gt;             &lt;chr&gt; &lt;dbl&gt;
-## 1      setosa      Petal.Length 1.462
-## 2      setosa       Petal.Width 0.246
-## 3      setosa      Sepal.Length 5.006
-## 4      setosa       Sepal.Width 3.428
-## 5  versicolor      Petal.Length 4.260
-## 6  versicolor       Petal.Width 1.326
-## 7  versicolor      Sepal.Length 5.936
-## 8  versicolor       Sepal.Width 2.770
-## 9   virginica      Petal.Length 5.552
+##  1     setosa      Petal.Length 1.462
+##  2     setosa       Petal.Width 0.246
+##  3     setosa      Sepal.Length 5.006
+##  4     setosa       Sepal.Width 3.428
+##  5 versicolor      Petal.Length 4.260
+##  6 versicolor       Petal.Width 1.326
+##  7 versicolor      Sepal.Length 5.936
+##  8 versicolor       Sepal.Width 2.770
+##  9  virginica      Petal.Length 5.552
 ## 10  virginica       Petal.Width 2.026
 ## 11  virginica      Sepal.Length 6.588
 ## 12  virginica       Sepal.Width 2.974</code></pre>
+</section></section>
+<section><section id="unite-and-seperate" class="titleslide slide level1"><h1>Unite and Seperate</h1></section><section id="unite-is-a-concatate-function." class="slide level2">
+<h1>Unite is a concatate function.</h1>
+<ul>
+<li>You define the name of the new column, and the ones you want to combine, in the order you wish to do so</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unite</span>(temp, school, grade)</code></pre></div>
+<p>Creates columns called “temp” from school and grade.</p>
+<ul>
+<li>You can also set the separator value with sep=&quot; “, the default is”snake case&quot; i.e sep=“_&quot;</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unite</span>(temp, school, grade, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</code></pre></div>
+</section><section id="separate" class="slide level2">
+<h1>separate</h1>
+<p>The opposite of unite! - separates values in a single column into new columns - Works best when every value in the column has the same number of possible elements to separate - If not, fill parameter - Define what the split is with sep=“_“. The default value is any non-alpha-numeric values (.,_…etc)</p>
+</section><section id="practice" class="slide level2">
+<h1>Practice</h1>
+<p>Subject, Raw Score, Scaled Score -&gt; ELA Raw Score, ELA Scaled Score, Math Raw Score, Math Scaled Score</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">subject =</span> <span class="kw">c</span>(<span class="st">&quot;ELA&quot;</span>, <span class="st">&quot;Math&quot;</span>), <span class="dt">scaled_score =</span> <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">200</span>), <span class="dt">raw_score =</span> <span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">50</span>))
+
+df %&gt;%<span class="st"> </span><span class="kw">unite</span>(temp, raw_score, scaled_score) %&gt;%
+<span class="st">  </span><span class="kw">spread</span>(subject, temp) %&gt;%
+<span class="st">  </span><span class="kw">separate</span>(ELA, <span class="kw">c</span>(<span class="st">&quot;ELA_raw_score&quot;</span>, <span class="st">&quot;ELA_scaled_score&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">separate</span>(Math, <span class="kw">c</span>(<span class="st">&quot;Math_raw_score&quot;</span>, <span class="st">&quot;Math_scaled_score&quot;</span>)) </code></pre></div>
 </section></section>
     </div>
   </div>
@@ -624,7 +676,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
     (function () {
       var script = document.createElement("script");
       script.type = "text/javascript";
-      script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
       document.getElementsByTagName("head")[0].appendChild(script);
     })();
   </script>

@@ -1,0 +1,62 @@
+---
+title: "Best Practices for Style"
+date: "7/7/2017"
+output: revealjs::revealjs_presentation
+---
+
+## Using the space you have
+- start a new line for each new thing in a mutate statement
+- start a new line generally when the line is too long. 
+- tab over inside a pipe
+- start a new code group (ie. ```{r}) when you start a new task
+
+## space continued
+- put spaces around your puncuation this allows the eye to see what's happening
+
+```{r}
+# Good 
+x <- 42 + 7
+
+# Bad
+x<-42+7
+```
+
+
+## naming conventions (columns, functions, varibles..etc)
+- use `snake_case` to stay consistent with tidyverse best practices
+  - lots of other R users prefer `sep.case`, but I think we should be consistent from here on out
+- in general: lower case with a seperator between words
+- try not to call your data frames `df` or `data` (bad Erin)
+
+## Puncuation
+
+Use ", not ', for quoting text. The only exception is when the text already contains double quotes and no single quotes.
+
+```{r, collapse=TRUE}
+# Good
+"Text"
+'Text with "quotes"'
+
+# Bad
+'Text'
+```
+  
+## Assignment
+
+Use `<-` not `=` for assignment. 
+
+I know it takes some time to get used to, but it makes your code look much cleaner. 
+
+## 
+
+```{r, collapse=TRUE}
+# Good
+x <- 42
+
+# Bad
+x = 42
+
+# Really bad
+x=42
+```
+
