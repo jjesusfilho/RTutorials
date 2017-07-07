@@ -28,23 +28,25 @@ Benefits to using Janitor over writing your own code:
 - Pipe-able
 - Written for the education data space
 
-
----
-![](http://media1.giphy.com/media/39V5OwGouQ9S8/giphy-downsized.gif)
 ---
 
-```{r, message=FALSE, warning=FALSE}
+
+
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 library("janitor")
 library("readxl")
 library("dplyr")
 ```
 
----
 
 Two main functions I use all the time:
 
 - `clean_names()`
 - `get_dupes()`
+
+![](http://media1.giphy.com/media/39V5OwGouQ9S8/giphy-downsized.gif)
+
 
 ---
 
@@ -57,14 +59,15 @@ Other really usual functions:
 
 ## Example 
 
-```{r, warning=FALSE, include=TRUE}
+```{r, message=FALSE, warning=FALSE}
 filepath <- "S:/Data Analytics/State Test Analysis/2016-2017/Uncommon Roster Prep/~Data/Source/Uncommon Roster 2016-17.xlsx"
 read_excel(filepath, sheet="Sheet1", col_types = "text") %>%
   clean_names() %>%
   remove_empty_cols() %>%
   remove_empty_rows() %>%
   mutate_at(vars(entrydate, exitdate, student_id, yearsinuncommon), as.numeric) %>%
-  mutate_at(vars(entrydate, exitdate), excel_numeric_to_date)
+  mutate_at(vars(entrydate, exitdate), excel_numeric_to_date) %>%
+  head()
 ```
 
 
