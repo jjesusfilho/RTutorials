@@ -169,3 +169,4 @@ pip-log.txt
 .Rproj.user
 .RData
 packrat/lib*/
+donotrun/*
