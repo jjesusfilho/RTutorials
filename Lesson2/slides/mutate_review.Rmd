@@ -1,6 +1,6 @@
 ---
 title: "More cool things with mutate"
-date: "6/6/2017"
+date: "June 6, 2017"
 output: revealjs::revealjs_presentation
 ---
 

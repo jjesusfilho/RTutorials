@@ -1,10 +1,14 @@
 ---
 title: "Janitor"
-date: "6/6/2017"
+date: "June 6, 2017"
 output: html_document
 ---
 
-From the description file: Janitor was built with beginning-to-intermediate R users in mind and is optimized for user-friendliness. Advanced users can already do everything covered here, but they can do it faster with janitor and save their thinking for more fun tasks.
+From the description file: 
+
+Janitor was built with beginning-to-intermediate R users in mind and is optimized for user-friendliness. Advanced users can already do everything covered here, but they can do it faster with janitor and save their thinking for more fun tasks.
+
+---
 
 The janitor functions expedite the initial data exploration and cleaning that comes with any new data set. This catalog describes the usage for each function.
 
@@ -12,7 +16,7 @@ The janitor functions expedite the initial data exploration and cleaning that co
 
 You should be able to do everything inside janitor on your own, but we don't have the time to always clean up data without help.
 
-![spring+cleaning](http://media3.giphy.com/media/3oKIPCSX4UHmuS41TG/giphy-downsized.gif)  
+![](http://media3.giphy.com/media/3oKIPCSX4UHmuS41TG/giphy-downsized.gif)  
 
 ---
 
@@ -25,23 +29,22 @@ Benefits to using Janitor over writing your own code:
 - Written for the education data space
 
 
-
-![happy-cleaning](http://media1.giphy.com/media/39V5OwGouQ9S8/giphy-downsized.gif)
+---
+![](http://media1.giphy.com/media/39V5OwGouQ9S8/giphy-downsized.gif)
 ---
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library("janitor")
 library("readxl")
 library("dplyr")
 ```
 
-----
+---
 
 Two main functions I use all the time:
 
 - `clean_names()`
 - `get_dupes()`
-
 
 ---
 
