@@ -23,9 +23,9 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 - [Tidy Data](Lesson2/slides/tidy-data-slides.html){:target="_blank"}
 - [More with Mutate](Lesson2/slides/mutate_review.html){:target="_blank"}
 - [Writing Functions](Lesson2/slides/writing_functions_slides.html){:target="_blank"}
+- [Janitor Package](Lesson2/slides/janitor.html){:target="_blank"}
 
 ### Workbooks
-- [Janitor Package](Lesson2/slides/janitor.html){:target="_blank"}
 
 ---
 
