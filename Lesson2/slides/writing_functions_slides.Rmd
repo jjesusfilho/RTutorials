@@ -15,12 +15,29 @@ library(dplyr)
 # Writing Functions
 
 ## What is a function?
-Discuss.
+What would your definition be?
 
 ## Why and when should you write your own functions?
 
-- never copy paste more than twice if you can
-- use function as "recipe" for data analysis
+- Do not repeat yourself: Never copy paste more than twice if you can, instead write out your process in a function.
+- Another advantage of functions is that if our requirements change, we only need to make the change in one place. 
+
+
+
+---
+
+There are three key steps to creating a new function:
+
+1. You need to pick a name for the function. It is recommended to use a _verd_ as a name. I.e `read_ny_data`, even though it's a bit long - it's readable.
+
+2. You list the inputs, or arguments, to the function inside function. A function with one argument may look like `function(x)` whereas one with multiple looks like `function(x, y, z)`.
+
+3. You place the code you have developed in body of the function, a { block that immediately follows function(...). We'll see an example in a second.
+
+---
+
+
+
 
 
 ## Simple Function
@@ -50,8 +67,8 @@ best_pets <- function(animal){
 - `function(args)`: let R know that are you writing a function and not to directly implement this section of code till you call it
 - `{}` the _code_ of your function should be between {'s
 - `foo <- function(args){}`: name your function with the assignment operator
-  - name your function in the VERB sense of what you're function is accomplishing
-  - i.e: `clean_data()`, `get_cohort()`, `()`...etc
+  - Reminder: name your function in the VERB sense of what you're function is accomplishing
+  - i.e: `clean_data()`, `read_data()`, `input_cohort()`, ...etc
 
 
 ## Real world example
@@ -66,19 +83,34 @@ read_file <- function(file, sheet_name=1){
 read_file("~/data.xlsx")
 ```
 
+## Why is this so useful?
+Discuss!
 
 
 ## Assignments within Functions
 
-- `x <- 1` in a a funtion does not change the value of x outside the function
-- The last thing created is automatically returned
+- The body of the function is normal R code... however it is not executed outside the function
+  - i.e `x <- 1` in a a function does not change the value of x outside the function
+- The last thing created in a function is automatically returned, so you do not have to use `return(x)`
 
+---
+```{r, eval=FALSE}
+read_file <- function(file, sheet_name=1){
+  read_excel(file, sheet = sheet_name, col_names = TRUE, col_types = "text") %>%
+    remove_empty_cols() %>%
+    remove_empty_rows() %>%
+    clean_names()
+}
+
+read_file("~/data.xlsx")
+```
+---
 
 ## Arugments
 - Name the arguments something that makes sense to use throughout the function
 - Include as many arguments as you need
 - If you are passing the data frame into the function, it should be the first argument
-
+- Example: Here our arguments are the file location and a sheet number or name.
 
 ```{r, eval=FALSE}
 read_file <- function(file, sheet_name=1){
@@ -91,8 +123,15 @@ read_file <- function(file, sheet_name=1){
 read_file("~/data.xlsx")
 ```
 
+## Questions
+- Why did I set sheet_name to be sheet_name=1? What does this allow for my function.
+
+
+
 # Using Custom Functions in DPLYR
 
+
+## Example student roster
 
 ```{r, echo=FALSE}
 students <- tibble::tribble(
@@ -117,18 +156,25 @@ students <- tibble::tribble(
 ## Example with `mutate()`
 
 ```{r, collapse=TRUE}
-get_cohort <- function(grade, school_year) {
+include_cohort <- function(grade, school_year) {
   years_to_grad <- 12 - as.numeric(grade) # add the as.numeric() due to possibility of leading 0s
   year <- stringr::str_sub(school_year, -2, -1) %>% paste0("20", .) %>% as.numeric()
   cohort <- year + years_to_grad
 }
 
-get_cohort(05, "2014-15") # just try it out on one example
+include_cohort(05, "2014-15") # just try it out on one example
 
 students %>%
-  mutate(cohort = get_cohort(grade, school_year)) %>% # run through all the students
+  mutate(cohort = include_cohort(grade, school_year)) %>% # run through all the students
   head()
 ```
+
+## You try - create a function that will change all the NAs in es_grad to 0
+- What are you going to name your function?
+- What arguments do you need to pass in?
+- Are there other columns that may need to be worked on the same way?
+- Extra credit: Change all the 1's to YES and the 0's to No in both es_grad and backfilled
+
 
 ## Example with `mutate_at()`
 ```{r}
@@ -145,18 +191,31 @@ students %>% mutate_at(vars(es_grad, backfilled), class_yes_no)
 ```
 
 
+## Break for Any Questions
+![Any questions so far?](https://media4.giphy.com/media/12YpoQHg66u8jm/giphy-downsized.gif?response_id=5962da79b404e03110474ad5)  
+
 
 # Using Custom Functions with PURRR
 
+---
+- What is functional programming?
+- What is iteration?
+- How do you combine functions with iteration?
+- Why would you do this?
+---
+
+We're going to touch the VERY BASICS of the `purrr` package. It can be challenging to understand and use, but in most cases, you will have a single use case for these functions and will get the hang of it quickly.
+
+---
 
 
 ## `purrr::map_x`
 
 Map_x functions:
 
-- `map_df`: outputs a data frame, usally by sticking multiple inputs together **THIS IS THE ONE YOU WILL USE**
+- `map_df`: outputs a data frame, usually by sticking multiple inputs together **THIS IS THE ONE YOU WILL USE**
 - `map_chr`: outputs a character
-- `map_int`: outputs an interger
+- `map_int`: outputs an integer
 - `map`: outputs a list **Do not use this without Erin's help**
 
 ---
@@ -168,7 +227,7 @@ Three ways to call map:
 ### One Line:
 Input 1: list or column vector of inputs
 Input 2: function name
-Input 3+: other aruguments for the the function
+Input 3+: other arguments for the the function
 
 ```
 map_df(filepaths, read_excel, col_names=T)
@@ -195,8 +254,9 @@ map_df(filepaths, combine_ny_data)
 ### Write the function in map
 
 Input 1: list or column vector of inputs
-Input 2: code, begining with `~` and include `.x` for the inputs
-_note: strspilt is pretty annoying, but can be really useful for strings_
+Input 2: code, beginning with `~` and include `.x` for the inputs
+
+_Note: strspilt is pretty annoying, but can be really useful for strings_
 
 ```{r}
 # example: you have text such as UCHS_ELA09 and you want just UCHS
@@ -206,16 +266,16 @@ map_chr(schools, ~strsplit(.x, "_")[[1]][1])
 
 # You Try
 
-## Task 1: Read in many files of the same format to one data frame.
+---
+### Task: Read in many files of the same format to one data frame.
 - You're going to be using the NY prior year scores:
-  "S:\Data Analytics\State Test Analysis\2016-2017\Non-Uncommon Prior Year Results\~Data\Source\NYC"
+  `Non-Uncommon Prior Year Results\~Data\Source\NYC`
 - Get the list of files into R (hint: `?list.files`) 
 - Write a function that will read in a file and clean it. 
+    - only include grade 3-8 students
+    - only include season == "SP16" where `ss` (scaled score) is given
 - Use `map_df` to read in ALL the files into one data frame
-
-## Task 2:
-
-
+- Extra credit: There are lots of duplicates! Try and get rid of them.
 
 
 

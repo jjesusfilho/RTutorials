@@ -1,0 +1,20 @@
+---
+title: "Unit Testing with Assertr"
+author: "Erin Grand"
+date: "6/6/2017"
+output: revealjs::revealjs_presentation
+---
+
+
+# What the heck is unit testing?
+
+
+# Assertr
+
+## Library(assertr)
+
+```{r}
+library(assertr)
+```
+
+
