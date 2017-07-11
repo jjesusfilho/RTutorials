@@ -18,6 +18,9 @@ library(readxl)
 
 # Tiday Data
 
+## Tidy Data
+![Hadley](http://r4ds.had.co.nz/images/tidy-1.png)
+
 ### The essence of tidy data is:
   
 1. Each variable forms a column
