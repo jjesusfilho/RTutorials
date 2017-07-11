@@ -581,23 +581,23 @@ document.getElementsByTagName('head')[0].appendChild(style);
 }
 
 <span class="kw">read_file</span>(<span class="st">&quot;~/data.xlsx&quot;</span>)</code></pre></div>
-</section><section id="questions" class="slide level2">
-<h1>Questions</h1>
+</section><section id="discussion-questions" class="slide level2">
+<h1>Discussion Questions</h1>
 <ul>
-<li class="fragment">Why did I set sheet_name to be sheet_name=1? What does this allow for my function.</li>
+<li class="fragment">Why did I set sheet_name to be sheet_name=1? What does this allow for in my function?</li>
+<li class="fragment">What can’t I do with functions? Or at least, what’s super hard and annoying? (Hint. Think dplyr.)</li>
+<li class="fragment">Where should you house common functions you may need all the time?</li>
 </ul>
 </section></section>
 <section><section id="using-custom-functions-in-dplyr" class="titleslide slide level1"><h1>Using Custom Functions in DPLYR</h1></section><section id="example-student-roster" class="slide level2">
 <h1>Example student roster</h1>
 </section><section id="example-with-mutate" class="slide level2">
-<h1>Example with <code>mutate()</code></h1>
+<h1>Example with <code>mutate</code></h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">include_cohort &lt;-<span class="st"> </span>function(grade, school_year) {
   years_to_grad &lt;-<span class="st"> </span><span class="dv">12</span> -<span class="st"> </span><span class="kw">as.numeric</span>(grade) <span class="co"># add the as.numeric() due to possibility of leading 0s</span>
   year &lt;-<span class="st"> </span>stringr::<span class="kw">str_sub</span>(school_year, -<span class="dv">2</span>, -<span class="dv">1</span>) %&gt;%<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;20&quot;</span>, .) %&gt;%<span class="st"> </span><span class="kw">as.numeric</span>()
   cohort &lt;-<span class="st"> </span>year +<span class="st"> </span>years_to_grad
 }
-
-<span class="kw">include_cohort</span>(<span class="dv">05</span>, <span class="st">&quot;2014-15&quot;</span>) <span class="co"># just try it out on one example</span>
 
 students %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">cohort =</span> <span class="kw">include_cohort</span>(grade, school_year)) %&gt;%<span class="st"> </span><span class="co"># run through all the students</span>
@@ -612,41 +612,42 @@ students %&gt;%
 ## 4 5165383282     6     2016-17       1          0   2023
 ## 5 7414861057     3     2016-17      NA          1   2026
 ## 6 8899701876    10     2016-17      NA          0   2019</code></pre></div>
-</section><section id="you-try---create-a-function-that-will-change-all-the-nas-in-es_grad-to-0" class="slide level2">
-<h1>You try - create a function that will change all the NAs in es_grad to 0</h1>
+</section><section id="you-try" class="slide level2">
+<h1>You try</h1>
+<p>Create a function that will change all the NAs in es_grad to 0.</p>
 <ul>
 <li class="fragment">What are you going to name your function?</li>
 <li class="fragment">What arguments do you need to pass in?</li>
 <li class="fragment">Are there other columns that may need to be worked on the same way?</li>
-<li class="fragment">Extra credit: Change all the 1’s to YES and the 0’s to No in both es_grad and backfilled</li>
+<li class="fragment">Extra credit: Use a function to change all the 1’s to YES and the 0’s to NO in both es_grad and backfilled</li>
 </ul>
 </section><section id="example-with-mutate_at" class="slide level2">
-<h1>Example with <code>mutate_at()</code></h1>
+<h1>Example with <code>mutate_at</code></h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ignore_nas &lt;-<span class="st"> </span>function(x){
   <span class="kw">ifelse</span>(<span class="kw">is.na</span>(x), <span class="dv">0</span>, x)
 }
 
 class_yes_no &lt;-<span class="st"> </span>function(x){
   x &lt;-<span class="st"> </span><span class="kw">ignore_nas</span>(x)
-  <span class="kw">ifelse</span>(x ==<span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)
+  <span class="kw">ifelse</span>(x ==<span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;YES&quot;</span>, <span class="st">&quot;NO&quot;</span>)
 }
 
 students %&gt;%<span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(es_grad, backfilled), class_yes_no)</code></pre></div>
 <pre><code>## # A tibble: 12 x 5
 ##    student_id grade school_year es_grad backfilled
 ##         &lt;dbl&gt; &lt;dbl&gt;       &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;
-##  1 4641219404     9     2016-17      No        Yes
-##  2 5677497066     7     2015-16     Yes         No
-##  3 4410073751     4     2016-17      No         No
-##  4 5165383282     6     2016-17     Yes         No
-##  5 7414861057     3     2016-17      No        Yes
-##  6 8899701876    10     2016-17      No         No
-##  7 5814766659     5     2015-16      No        Yes
-##  8 4523939000     4     2015-16      No        Yes
-##  9 2852910440     9     2015-16     Yes         No
-## 10 4237200058     6     2016-17     Yes         No
-## 11 6288262677     4     2015-16      No         No
-## 12 1511873670     3     2015-16      No         No</code></pre>
+##  1 4641219404     9     2016-17      NO        YES
+##  2 5677497066     7     2015-16     YES         NO
+##  3 4410073751     4     2016-17      NO         NO
+##  4 5165383282     6     2016-17     YES         NO
+##  5 7414861057     3     2016-17      NO        YES
+##  6 8899701876    10     2016-17      NO         NO
+##  7 5814766659     5     2015-16      NO        YES
+##  8 4523939000     4     2015-16      NO        YES
+##  9 2852910440     9     2015-16     YES         NO
+## 10 4237200058     6     2016-17     YES         NO
+## 11 6288262677     4     2015-16      NO         NO
+## 12 1511873670     3     2015-16      NO         NO</code></pre>
 </section><section id="break-for-any-questions" class="slide level2">
 <h1>Break for Any Questions</h1>
 <figure>
@@ -690,12 +691,15 @@ map_df(filepaths, combine_ny_data)
 schools &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;UCHS_ELA09&quot;</span>, <span class="st">&quot;UCC_ALG02&quot;</span>)
 <span class="kw">map_chr</span>(schools, ~<span class="kw">strsplit</span>(.x, <span class="st">&quot;_&quot;</span>)[[<span class="dv">1</span>]][<span class="dv">1</span>])</code></pre></div>
 <pre><code>## [1] &quot;UCHS&quot; &quot;UCC&quot;</code></pre>
+</section><section id="comments" class="slide level2">
+<h1>Comments</h1>
+<p>-&lt; ALWAYS try your function on ONE thing first before using map. -&lt;</p>
 </section></section>
-<section><section id="you-try" class="titleslide slide level1"><h1>You Try</h1></section><section class="slide level2">
+<section><section id="you-try-1" class="titleslide slide level1"><h1>You Try</h1></section><section class="slide level2">
 
 <h3 id="task-read-in-many-files-of-the-same-format-to-one-data-frame.">Task: Read in many files of the same format to one data frame.</h3>
 <ul>
-<li class="fragment">You’re going to be using the NY prior year scores: <code>State Test Analysis\2016-2017\Non-Uncommon Prior Year Results\~Data\Source\NYC</code></li>
+<li class="fragment">You’re going to be using the NY prior year scores: <code>Non-Uncommon Prior Year Results\~Data\Source\NYC</code></li>
 <li class="fragment">Get the list of files into R (hint: <code>?list.files</code>)</li>
 <li class="fragment">Write a function that will read in a file and clean it.
 <ul>

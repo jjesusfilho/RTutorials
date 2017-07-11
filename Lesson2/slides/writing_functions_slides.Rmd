@@ -123,10 +123,10 @@ read_file <- function(file, sheet_name=1){
 read_file("~/data.xlsx")
 ```
 
-## Questions
-- Why did I set sheet_name to be sheet_name=1? What does this allow for my function.
-
-
+## Discussion Questions
+- Why did I set sheet_name to be sheet_name=1? What does this allow for in my function?
+- What can't I do with functions? Or at least, what's super hard and annoying? (Hint. Think dplyr.)
+- Where should you house common functions you may need all the time?
 
 # Using Custom Functions in DPLYR
 
@@ -153,7 +153,7 @@ students <- tibble::tribble(
 ```
 
 
-## Example with `mutate()`
+## Example with `mutate`
 
 ```{r, collapse=TRUE}
 include_cohort <- function(grade, school_year) {
@@ -162,21 +162,21 @@ include_cohort <- function(grade, school_year) {
   cohort <- year + years_to_grad
 }
 
-include_cohort(05, "2014-15") # just try it out on one example
-
 students %>%
   mutate(cohort = include_cohort(grade, school_year)) %>% # run through all the students
   head()
 ```
 
-## You try - create a function that will change all the NAs in es_grad to 0
+## You try
+Create a function that will change all the NAs in es_grad to 0.
+
 - What are you going to name your function?
 - What arguments do you need to pass in?
 - Are there other columns that may need to be worked on the same way?
-- Extra credit: Change all the 1's to YES and the 0's to No in both es_grad and backfilled
+- Extra credit: Use a function to change all the 1's to YES and the 0's to NO in both es_grad and backfilled
 
 
-## Example with `mutate_at()`
+## Example with `mutate_at`
 ```{r}
 ignore_nas <- function(x){
   ifelse(is.na(x), 0, x)
@@ -184,7 +184,7 @@ ignore_nas <- function(x){
 
 class_yes_no <- function(x){
   x <- ignore_nas(x)
-  ifelse(x == 1, "Yes", "No")
+  ifelse(x == 1, "YES", "NO")
 }
 
 students %>% mutate_at(vars(es_grad, backfilled), class_yes_no)
@@ -263,6 +263,12 @@ _Note: strspilt is pretty annoying, but can be really useful for strings_
 schools <- c("UCHS_ELA09", "UCC_ALG02")
 map_chr(schools, ~strsplit(.x, "_")[[1]][1])
 ```
+## Comments
+-< ALWAYS try your function on ONE thing first before using map.
+-< 
+
+
+
 
 # You Try
 
@@ -275,7 +281,7 @@ map_chr(schools, ~strsplit(.x, "_")[[1]][1])
     - only include grade 3-8 students
     - only include season == "SP16" where `ss` (scaled score) is given
 - Use `map_df` to read in ALL the files into one data frame
-- Extra credit: There are lots of duplicates! Try and get rid of them.
+- Extra credit: There are lots of duplicates! Try and get rid of them. 
 
 
 
