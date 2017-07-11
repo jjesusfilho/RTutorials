@@ -9,17 +9,14 @@ output: revealjs::revealjs_presentation
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(knitr)
-opts_chunk$set(collapse = FALSE)
 library(tidyverse)
 library(fivethirtyeight)
+library(janitor)
+library(readxl)
 ```
 
 
-## Tidy data
-
-<div class="centered">
-![](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.jpg)
-</div>
+# Tiday Data
 
 ### The essence of tidy data is:
   
@@ -40,10 +37,8 @@ library(fivethirtyeight)
 
 Example: Is this untidy or tidy data?
 
-```{r, collapse=T, echo=FALSE}
-fivethirtyeight::airline_safety %>%
-  select(airline, incidents_85_99:fatalities_00_14) %>%
-  head()
+```{r, collapse=TRUE, echo=FALSE}
+str(fivethirtyeight::bob_ross)
 ```
 
 ---
@@ -88,16 +83,37 @@ databases	| fold	| unfold
 ---
 
 
+## Gather
+- moves data into long form
+- syntax is similar to `select`
+- `gather(key, value, ...)`
 
-## Pipes: Ceci n'est pas un pipe
+## Example
 
-Don't forget to use your pipes!
+```{r, warning=FALSE}
+gather(fivethirtyeight::bob_ross, object, included, apple_frame:wood_framed) %>%
+  arrange(episode, season, episode_num, title) 
+```
+
+
+## Spread
+- moves data into long form
+- you can only easily spread one column at a time
+- if values for groups are missing, there are filled in with NA by default
+- you can change the fill parameter in the spread call to fill in missing results with something else
+`spread(key, value, fill=0)`
+- sometimes you don't have a value column to spread out, but you can always make one with `mutate`
+
+## Example
+2015-16 New York State Exams
 
 ```{r}
-iris %>% 
-	gather(petal_measurments, value, -Species) %>% 
-	group_by(Species, petal_measurments) %>% 
-	summarise(mean = mean(value))
+read_rds("S:/Data Analytics/State Test Analysis/2016-2017/New York State Exams/Results Release/~Data/Processed/Uncommon Student-level results/Output/NYS_SY1516_results.rds") %>% 
+  filter(grade != 13) %>% 
+  clean_names() %>%
+  group_by(school, school_type, region, assessment_description) %>%
+  summarise(percent_proficient = mean(proficient)) %>%
+  spread(assessment_description, percent_proficient) 
 ```
 
 
@@ -105,8 +121,9 @@ iris %>%
 
 # Unite and Seperate
 
-## Unite is a concatate function.
-- You define the name of the new column, and the ones you want to combine, in the order you wish to do so
+## Unite is a concatenate function.
+
+>- You define the name of the new column, and the ones you want to combine, in the order you wish to do so
 
 ```{r, eval=FALSE}
 unite(temp, school, grade)
@@ -114,30 +131,52 @@ unite(temp, school, grade)
 
 Creates columns called "temp" from school and grade. 
  
-- You can also set the separator value with sep=" ", the default is "snake case" i.e sep="_"
+>- You can also set the separator value with sep=" ", the default is "snake case" i.e sep="_"
 
 ```{r, eval=FALSE}
 unite(temp, school, grade, sep="")
 ```
 
 
-## separate
+## Separate
 The opposite of unite!
 - separates values in a single column into new columns
 - Works best when every value in the column has the same number of possible elements to separate
 - If not, fill parameter 
 - Define what the split is with sep="_". The default value is any non-alpha-numeric values (.,_...etc)
 
-## Practice
+## Example: Spead two columns
 Subject, Raw Score, Scaled Score -> ELA Raw Score, ELA Scaled Score, Math Raw Score, Math Scaled Score
 
-```{r, eval=FALSE}
-df <- tibble(subject = c("ELA", "Math"), scaled_score = c(100, 200), raw_score = c(20, 50))
+```{r, collapse=TRUE}
+(df <- tibble(student = c("bob", "bob"), subject = c("ELA", "Math"), scaled_score = c(100, 200), raw_score = c(20, 50)))
+```
 
+---
+```{r}
 df %>% unite(temp, raw_score, scaled_score) %>%
   spread(subject, temp) %>%
-  separate(ELA, c("ELA_raw_score", "ELA_scaled_score")) %>%
-  separate(Math, c("Math_raw_score", "Math_scaled_score")) 
+  separate(ELA, c("ela_raw_score", "ela_scaled_score")) %>%
+  separate(Math, c("math_raw_score", "math_scaled_score")) 
 ```
+
+---
+
+# You try
+
+## Task 1:
+Using the AP Input student scores, create a table which shows how many student received each level per grade and school. We want a column for each level and a total.
+
+```{r, echo=FALSE, message=FALSE}
+read_excel("S:/Data Analytics/HS Results Deck/2016-17/AP/Data Processing/AP Input.xlsx", 2, col_types="text") %>%
+  clean_names() %>%
+  mutate(score = paste0("l", score)) %>%
+  count(year, school, grade, subject, score) %>%
+  spread(score, n, fill=0) %>%
+  mutate(total = l1 + l2 + l3 + l4 + l5) %>%
+  head()
+```
+
+
 
 
